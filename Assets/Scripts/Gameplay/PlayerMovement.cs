@@ -67,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
             if (grounded)
             {
                 body.linearVelocity = new Vector2(body.linearVelocity.x, jumpSpeed);
+                anim.ResetTrigger("Jump");
                 anim.SetTrigger("Jump");
             }
             else if (airJumpRemaining > 0)
