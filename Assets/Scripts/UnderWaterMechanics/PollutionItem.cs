@@ -2,15 +2,8 @@ using UnityEngine;
 
 public class PollutionItem : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string id = "bottle";
+    public int points = 5;
+    public AudioClip pickupSfx;
+    public Sprite icon;
 }
