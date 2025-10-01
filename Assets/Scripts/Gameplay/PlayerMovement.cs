@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
