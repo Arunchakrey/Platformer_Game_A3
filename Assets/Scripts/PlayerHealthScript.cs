@@ -28,7 +28,7 @@ public class PlayerHealthScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Enemy enemy = collision.GetComponent<Enemy>();
+        IItem enemy = collision.GetComponent<IItem>();
         // if (enemy)
         // {
 

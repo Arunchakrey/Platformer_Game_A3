@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 634a150b8a6a2c447a7e4d909743aba9
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238393
+  packageName: Super Grotto Escape Pack
+  packageVersion: 1.0
+  assetPath: Assets/Super Grotto Escape/Characters/Player/Player-run-shoot/player-run-shoott1.controller
+  uploadId: 545561

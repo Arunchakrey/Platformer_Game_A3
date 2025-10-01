@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e5a5d794f47894d46897a8c46872bfe2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238393
+  packageName: Super Grotto Escape Pack
+  packageVersion: 1.0
+  assetPath: Assets/Super Grotto Escape/Characters/Player/player-run/Run_Animation.anim
+  uploadId: 545561

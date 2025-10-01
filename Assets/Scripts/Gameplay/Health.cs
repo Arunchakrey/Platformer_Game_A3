@@ -5,7 +5,8 @@ using UnityEngine.Rendering;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] int maxHearts = 3;
+    [SerializeField] int maxHearts = 5;
+    private int spawnedHealth = 3;
     public int MaxHearts => maxHearts;
     public int CurrentHearts { get; private set; }
 
@@ -14,7 +15,7 @@ public class Health : MonoBehaviour
 
     void Awake()
     {
-        CurrentHearts = Mathf.Max(1, maxHearts);
+        CurrentHearts = Mathf.Max(1, spawnedHealth);
         OnHealthChanged.Invoke(CurrentHearts, MaxHearts);
     }
 
