@@ -22,6 +22,12 @@ public class SwimController : MonoBehaviour
 
     [Header("Facing")]
     [SerializeField] bool faceSwimDirection = true; // rotate to aim/velocity
+    private Vector2 facingDir = Vector2.right;
+    private float facingRotationOffset = 0f;
+    // visual facing (never rotate 180)
+    [SerializeField] float diagonalTilt = 35f;   // how much to tilt on down-diagonals
+    Vector3 baseScale, baseScaleFlipped;
+
 
 
     private Rigidbody2D body;
@@ -39,6 +45,10 @@ public class SwimController : MonoBehaviour
         body.gravityScale = 0f; // underwater
         body.interpolation = RigidbodyInterpolation2D.Interpolate;
         body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        baseScale = transform.localScale;
+        baseScaleFlipped = new Vector3(-Mathf.Abs(baseScale.x), baseScale.y, baseScale.z);
+        baseScale = new Vector3(Mathf.Abs(baseScale.x), baseScale.y, baseScale.z);
+
     }
 
     private void Update()
@@ -70,19 +80,18 @@ public class SwimController : MonoBehaviour
             cooldownTimer = strokeCooldown;
         }
 
-        // face aim/velocity for visuals
+        // face aim/velocity for visuals, but snap to 4 directions
         if (faceSwimDirection)
         {
-            Vector2 faceDir = IsSubmerged
+            Vector2 rawDir = IsSubmerged
                 ? (body.linearVelocity.sqrMagnitude > 0.01f ? body.linearVelocity : aim)
-                : new Vector2(1, 0); // neutral when on surface
+                : new Vector2(Mathf.Sign(body.linearVelocity.x == 0 ? 1f : body.linearVelocity.x), 0f); // surface: L/R
 
-            if (faceDir.sqrMagnitude > 0.0001f)
-            {
-                float angle = Mathf.Atan2(faceDir.y, faceDir.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0, 0, angle - 90f); //sprite faces up
-            }
+            var facing = QuantizeFacingDir(rawDir);
+            ApplyFacing(facing);
         }
+
+
     }
 
     private void FixedUpdate()
@@ -123,6 +132,44 @@ public class SwimController : MonoBehaviour
             }
         }
     }
+
+    enum Facing4 { Right, Left, DownRight, DownLeft }
+
+    Facing4 QuantizeFacingDir(Vector2 raw)
+    {
+        // decide horizontal by x sign; switch to diagonals only if meaningfully downward
+        const float downThreshold = -0.25f;
+
+        if (raw.y <= downThreshold)               // downwards intent
+            return (raw.x >= 0f) ? Facing4.DownRight : Facing4.DownLeft;
+        else                                      // horizontal only
+            return (raw.x >= 0f) ? Facing4.Right   : Facing4.Left;
+    }
+
+    void ApplyFacing(Facing4 f)
+    {
+        switch (f)
+        {
+            case Facing4.Right:
+                transform.localScale = baseScale;
+                transform.rotation = Quaternion.Euler(0, 0, 0f + facingRotationOffset);
+                break;
+            case Facing4.Left:
+                transform.localScale = baseScaleFlipped;                // flip X instead of 180° rotate
+                transform.rotation = Quaternion.Euler(0, 0, 0f + facingRotationOffset);
+                break;
+            case Facing4.DownRight:
+                transform.localScale = baseScale;
+                transform.rotation = Quaternion.Euler(0, 0, -diagonalTilt + facingRotationOffset);
+                break;
+            case Facing4.DownLeft:
+                transform.localScale = baseScaleFlipped;               // flip X
+                transform.rotation = Quaternion.Euler(0, 0, +diagonalTilt + facingRotationOffset);
+                break;
+        }
+    }
+
+
 
     private void DoStroke()
     {
