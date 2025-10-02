@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 76c2c6320f447a54b924850c1dcbd43f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238393
+  packageName: Super Grotto Escape Pack
+  packageVersion: 1.0
+  assetPath: Assets/Super Grotto Escape/Characters/Enemies/lizard shoots/lizard-shoot1.controller
+  uploadId: 545561
