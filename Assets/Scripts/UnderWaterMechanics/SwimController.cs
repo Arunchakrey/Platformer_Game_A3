@@ -11,6 +11,7 @@ public class SwimController : MonoBehaviour
     [SerializeField] private float maxSpeed = 4.5f; // cap speed after stroke
     [SerializeField] private float waterDrag = 3.5f; // passive slowdown while submerged
     [SerializeField] private float aimDeadzone = 0.15f; // how much input magnitude to update aim (changing direction in water)
+    [SerializeField] BubbleEmitter bubble; // drag from child in Inspector (BubbleEmitter)
 
 
     [Header("World")]
@@ -48,7 +49,7 @@ public class SwimController : MonoBehaviour
         baseScale = transform.localScale;
         baseScaleFlipped = new Vector3(-Mathf.Abs(baseScale.x), baseScale.y, baseScale.z);
         baseScale = new Vector3(Mathf.Abs(baseScale.x), baseScale.y, baseScale.z);
-
+        if (!bubble) bubble = GetComponentInChildren<BubbleEmitter>(true);
     }
 
     private void Update()
@@ -183,6 +184,8 @@ public class SwimController : MonoBehaviour
         }
 
         body.linearVelocity = v;
+        bubble?.OnStroke();
+
     }
 
     public float SurfaceY => surfaceY;
