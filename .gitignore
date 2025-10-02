@@ -97,3 +97,12 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# Use Unity SmartMerge for text-serialized assets
+*.unity      merge=unityyamlmerge eol=lf
+*.prefab     merge=unityyamlmerge eol=lf
+*.asset      merge=unityyamlmerge eol=lf
+*.mat        merge=unityyamlmerge eol=lf
+*.controller merge=unityyamlmerge eol=lf
+*.anim       merge=unityyamlmerge eol=lf
+*.meta       merge=unityyamlmerge eol=lf
