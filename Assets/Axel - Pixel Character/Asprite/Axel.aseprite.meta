@@ -130,7 +130,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Frame_0
+  - name: Axel_Frame_0
     originalName: 
     pivot: {x: 0.6071428, y: 0.024390245}
     alignment: 9
@@ -151,7 +151,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 145, y: 101}
-  - name: Frame_1
+  - name: Axel_Frame_1
     originalName: 
     pivot: {x: 0.6071428, y: 0.023809524}
     alignment: 9
@@ -172,7 +172,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 108, y: 407}
-  - name: Frame_2
+  - name: Axel_Frame_2
     originalName: 
     pivot: {x: 0.6071428, y: 0.022727273}
     alignment: 9
@@ -193,7 +193,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 108, y: 55}
-  - name: Frame_3
+  - name: Axel_Frame_3
     originalName: 
     pivot: {x: 0.6071428, y: 0.022727273}
     alignment: 9
@@ -214,7 +214,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 108, y: 107}
-  - name: Frame_4
+
+  - name: Axel_Frame_4
+
     originalName: 
     pivot: {x: 0.62068963, y: 0.023255816}
     alignment: 9
@@ -235,7 +237,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 64, y: 447}
-  - name: Frame_5
+
+  - name: Axel_Frame_5
+
     originalName: 
     pivot: {x: 0.62068963, y: 0.023809524}
     alignment: 9
@@ -256,7 +260,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 108, y: 159}
-  - name: Frame_6
+
+  - name: Axel_Frame_6
+
     originalName: 
     pivot: {x: 0.6071428, y: 0.023809524}
     alignment: 9
@@ -277,7 +283,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 108, y: 457}
-  - name: Frame_7
+
+  - name: Axel_Frame_7
+
     originalName: 
     pivot: {x: 0.6296296, y: 0.024390245}
     alignment: 9
@@ -298,7 +306,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 145, y: 296}
-  - name: Frame_8
+
+  - name: Axel_Frame_8
+
     originalName: 
     pivot: {x: 0.6785714, y: 0.025641028}
     alignment: 9
@@ -319,7 +329,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 145, y: 345}
-  - name: Frame_9
+
+  - name: Axel_Frame_9
+
     originalName: 
     pivot: {x: 0.7142857, y: 0.026315792}
     alignment: 9
@@ -340,7 +352,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 145, y: 392}
-  - name: Frame_10
+
+  - name: Axel_Frame_10
+
     originalName: 
     pivot: {x: 0.82352936, y: 0.024390245}
     alignment: 9
@@ -361,7 +375,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 224, y: 232}
-  - name: Frame_11
+
+  - name: Axel_Frame_11
+
     originalName: 
     pivot: {x: 0.74999994, y: 0.023809524}
     alignment: 9
@@ -382,7 +398,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 184, y: 443}
-  - name: Frame_12
+
+  - name: Axel_Frame_12
+
     originalName: 
     pivot: {x: 0.58620685, y: 0.024390245}
     alignment: 9
@@ -403,7 +421,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 108, y: 260}
-  - name: Frame_13
+
+  - name: Axel_Frame_13
+
     originalName: 
     pivot: {x: 0.7037037, y: 0.025641028}
     alignment: 9
@@ -424,7 +444,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 145, y: 438}
-  - name: Frame_14
+
+  - name: Axel_Frame_14
+
     originalName: 
     pivot: {x: 0.7199999, y: 0.026315792}
     alignment: 9
@@ -445,7 +467,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 184, y: 183}
-  - name: Frame_15
+
+  - name: Axel_Frame_15
+
     originalName: 
     pivot: {x: 0.82352936, y: 0.025}
     alignment: 9
@@ -466,7 +490,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 224, y: 281}
-  - name: Frame_16
+
+  - name: Axel_Frame_16
+
     originalName: 
     pivot: {x: 0.74999994, y: 0.023809524}
     alignment: 9
@@ -487,7 +513,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 224, y: 93}
-  - name: Frame_17
+
+  - name: Axel_Frame_17
+
     originalName: 
     pivot: {x: 0.6486486, y: 0}
     alignment: 9
@@ -508,7 +536,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 241}
-  - name: Frame_18
+
+  - name: Axel_Frame_18
+
     originalName: 
     pivot: {x: 0.6896551, y: 0.024390245}
     alignment: 9
@@ -529,7 +559,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 108, y: 309}
-  - name: Frame_19
+
+  - name: Axel_Frame_19
+
     originalName: 
     pivot: {x: 0.7272727, y: 0.024390245}
     alignment: 9
@@ -550,7 +582,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 184, y: 318}
-  - name: Frame_20
+
+  - name: Axel_Frame_20
+
     originalName: 
     pivot: {x: 0.72413784, y: 0.023255816}
     alignment: 9
@@ -571,7 +605,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 108, y: 4}
-  - name: Frame_21
+
+  - name: Axel_Frame_21
+
     originalName: 
     pivot: {x: 0.6486486, y: 0}
     alignment: 9
@@ -592,7 +628,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 335}
-  - name: Frame_22
+
+  - name: Axel_Frame_22
+
     originalName: 
     pivot: {x: 0.6451612, y: 0.024390245}
     alignment: 9
@@ -613,7 +651,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 64, y: 250}
-  - name: Frame_23
+
+  - name: Axel_Frame_23
+
     originalName: 
     pivot: {x: 0.6956521, y: 0.024390245}
     alignment: 9
@@ -634,7 +674,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 184, y: 229}
-  - name: Frame_24
+
+  - name: Axel_Frame_24
+
     originalName: 
     pivot: {x: 0.7, y: 0.023809524}
     alignment: 9
@@ -655,7 +697,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 64, y: 299}
-  - name: Frame_25
+
+  - name: Axel_Frame_25
+
     originalName: 
     pivot: {x: 0.62068963, y: 0.03125}
     alignment: 9
@@ -676,7 +720,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 184, y: 278}
-  - name: Frame_26
+
+  - name: Axel_Frame_26
+
     originalName: 
     pivot: {x: 0.6470588, y: -0.27906978}
     alignment: 9
@@ -697,7 +743,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 384}
-  - name: Frame_27
+
+  - name: Axel_Frame_27
+
     originalName: 
     pivot: {x: 0.6296296, y: -0.5405405}
     alignment: 9
@@ -718,7 +766,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 225, y: 4}
-  - name: Frame_28
+
+  - name: Axel_Frame_28
+
     originalName: 
     pivot: {x: 0.6129032, y: -0.25}
     alignment: 9
@@ -739,7 +789,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 64, y: 100}
-  - name: Frame_29
+
+  - name: Axel_Frame_29
+
     originalName: 
     pivot: {x: 0.58620685, y: -0.18181819}
     alignment: 9
@@ -760,7 +812,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 64, y: 198}
-  - name: Frame_30
+
+  - name: Axel_Frame_30
+
     originalName: 
     pivot: {x: 0.62068963, y: 0.032258064}
     alignment: 9
@@ -781,7 +835,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 184, y: 367}
-  - name: Frame_31
+
+  - name: Axel_Frame_31
+
     originalName: 
     pivot: {x: 0.62068963, y: 0.03448276}
     alignment: 9
@@ -802,7 +858,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 184, y: 406}
-  - name: Frame_32
+
+  - name: Axel_Frame_32
+
     originalName: 
     pivot: {x: 0.5454545, y: 0.02777778}
     alignment: 9
@@ -823,7 +881,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 184, y: 49}
-  - name: Frame_33
+
+  - name: Axel_Frame_33
+
     originalName: 
     pivot: {x: 0.40909088, y: 0.02857143}
     alignment: 9
@@ -844,7 +904,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 224, y: 189}
-  - name: Frame_34
+
+  - name: Axel_Frame_34
+
     originalName: 
     pivot: {x: 0.19230768, y: 0.024390245}
     alignment: 9
@@ -865,7 +927,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Frame_35
+
+  - name: Axel_Frame_35
+
     originalName: 
     pivot: {x: 0.17073171, y: 0.025}
     alignment: 9
@@ -886,7 +950,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 101}
-  - name: Frame_36
+
+  - name: Axel_Frame_36
+
     originalName: 
     pivot: {x: 0.111111104, y: 0.025641028}
     alignment: 9
@@ -907,7 +973,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 64, y: 4}
-  - name: Frame_37
+
+  - name: Axel_Frame_37
+
     originalName: 
     pivot: {x: 0.3333333, y: 0.026315792}
     alignment: 9
@@ -928,7 +996,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 224, y: 143}
-  - name: Frame_38
+
+  - name: Axel_Frame_38
+
     originalName: 
     pivot: {x: 0.5416666, y: 0.025}
     alignment: 9
@@ -949,7 +1019,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 184, y: 135}
-  - name: Frame_39
+
+  - name: Axel_Frame_39
+
     originalName: 
     pivot: {x: 0.5806451, y: 0.025}
     alignment: 9
@@ -970,7 +1042,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 145, y: 4}
-  - name: Frame_40
+
+  - name: Axel_Frame_40
+
     originalName: 
     pivot: {x: 0.60606056, y: 0.027027026}
     alignment: 9
@@ -991,7 +1065,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 184, y: 4}
-  - name: Frame_41
+
+  - name: Axel_Frame_41
+
     originalName: 
     pivot: {x: 0.58823526, y: 0.027027026}
     alignment: 9
@@ -1012,7 +1088,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 64, y: 402}
-  - name: Frame_42
+
+  - name: Axel_Frame_42
+
     originalName: 
     pivot: {x: 0.37777776, y: 0.02777778}
     alignment: 9
@@ -1033,7 +1111,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 149}
-  - name: Frame_43
+
+  - name: Axel_Frame_43
+
     originalName: 
     pivot: {x: 0.39534882, y: 0.02777778}
     alignment: 9
@@ -1054,7 +1134,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 291}
-  - name: Frame_44
+
+  - name: Axel_Frame_44
+
     originalName: 
     pivot: {x: 0.45714283, y: 0.026315792}
     alignment: 9
@@ -1075,7 +1157,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 64, y: 152}
-  - name: Frame_45
+
+  - name: Axel_Frame_45
+
     originalName: 
     pivot: {x: 0.57142854, y: 0.024390245}
     alignment: 9
@@ -1096,7 +1180,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 145, y: 150}
-  - name: Frame_46
+
+  - name: Axel_Frame_46
+
     originalName: 
     pivot: {x: 0.59999996, y: 0.024390245}
     alignment: 9
@@ -1117,7 +1203,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 145, y: 52}
-  - name: Frame_47
+
+  - name: Axel_Frame_47
+
     originalName: 
     pivot: {x: 0.35416663, y: 0.025}
     alignment: 9
@@ -1138,7 +1226,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 53}
-  - name: Frame_48
+
+  - name: Axel_Frame_48
+
     originalName: 
     pivot: {x: 0.4358974, y: 0.025}
     alignment: 9
@@ -1159,7 +1249,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 193}
-  - name: Frame_49
+
+  - name: Axel_Frame_49
+
     originalName: 
     pivot: {x: 0.41176468, y: 0.024390245}
     alignment: 9
@@ -1180,7 +1272,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 64, y: 51}
-  - name: Frame_50
+
+  - name: Axel_Frame_50
+
     originalName: 
     pivot: {x: 0.44827583, y: 0.024390245}
     alignment: 9
@@ -1201,7 +1295,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 108, y: 358}
-  - name: Frame_51
+
+  - name: Axel_Frame_51
+
     originalName: 
     pivot: {x: 0.6296296, y: 0.029411767}
     alignment: 9
@@ -1222,7 +1318,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 225, y: 49}
-  - name: Frame_52
+
+  - name: Axel_Frame_52
+
     originalName: 
     pivot: {x: 0.56249994, y: 0.029411767}
     alignment: 9
@@ -1243,7 +1341,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 184, y: 93}
-  - name: Frame_53
+
+  - name: Axel_Frame_53
+
     originalName: 
     pivot: {x: 0.5806451, y: 0.021276597}
     alignment: 9
@@ -1264,7 +1364,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 435}
-  - name: Frame_54
+
+  - name: Axel_Frame_54
+
     originalName: 
     pivot: {x: 0.6428571, y: 0.022222223}
     alignment: 9
@@ -1285,7 +1387,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 64, y: 349}
-  - name: Frame_55
+
+  - name: Axel_Frame_55
+
     originalName: 
     pivot: {x: 0.6428571, y: 0.023255816}
     alignment: 9
@@ -1306,7 +1410,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 108, y: 209}
-  - name: Frame_56
+
+  - name: Axel_Frame_56
+
     originalName: 
     pivot: {x: 0.6785714, y: 0.025}
     alignment: 9
@@ -1327,7 +1433,9 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 145, y: 248}
-  - name: Frame_57
+
+  - name: Axel_Frame_57
+
     originalName: 
     pivot: {x: 0.6428571, y: 0.024390245}
     alignment: 9
