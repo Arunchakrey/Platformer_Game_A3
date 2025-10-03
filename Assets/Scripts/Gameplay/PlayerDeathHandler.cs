@@ -4,60 +4,54 @@ using UnityEngine.InputSystem;
 [DisallowMultipleComponent]
 public class PlayerDeathHandler : MonoBehaviour
 {
-    [Header("Refs (auto if empty)")]
-    [SerializeField] private PlayerHealthScript health;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private PlayerInput playerInput;
-
-    [Header("Disable on death")]
-    [SerializeField] private Behaviour[] disableOnDeath; // e.g., PlayerMovementScript, Animator, etc.
-
-    [Header("Hide visuals on death")]
-    [SerializeField] private SpriteRenderer[] renderersToHide; // auto-pulled if empty
-
-    [Header("Hide UI on death (optional)")]
-    [SerializeField] private GameObject[] uiRootsToHide; // assign HUD groups (ability icons, etc.)
+    [SerializeField] Health health;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] Behaviour[] disableOnDeath; // SwimController, Animator, etc.
 
     void Awake()
     {
-        if (!health) health = GetComponent<PlayerHealthScript>();
-        if (!rb) rb = GetComponent<Rigidbody2D>();
-        if (!playerInput) playerInput = GetComponent<PlayerInput>();
-        if (renderersToHide == null || renderersToHide.Length == 0)
-            renderersToHide = GetComponentsInChildren<SpriteRenderer>(true);
+        if (!health) health = GetComponent<Health>() ?? GetComponentInParent<Health>();
+        if (!rb) rb = GetComponent<Rigidbody2D>() ?? GetComponentInParent<Rigidbody2D>();
+        Debug.Log($"[DeathHandler] Awake: health={(health ? health.name : "NULL")} rb={(rb ? rb.name : "NULL")}");
     }
 
     void OnEnable()
     {
-        if (health) health.OnDied.AddListener(HandleDeath);
+        if (health)
+        {
+            health.OnDied.AddListener(HandleDeath);
+            Debug.Log("[DeathHandler] Subscribed to Health.OnDied");
+        }
+        else
+        {
+            Debug.LogError("[DeathHandler] No Health found. Put Health on this object or its parent, or assign in Inspector.");
+        }
     }
+
     void OnDisable()
     {
-        if (health) health.OnDied.RemoveListener(HandleDeath);
+        if (health)
+        {
+            health.OnDied.RemoveListener(HandleDeath);
+            Debug.Log("[DeathHandler] Unsubscribed");
+        }
     }
 
-    private void HandleDeath()
+    void HandleDeath()
     {
-        // stop input
-        if (playerInput) playerInput.enabled = false;
+        Debug.Log("[DeathHandler] GameOver requested");
+        foreach (var b in disableOnDeath) if (b) b.enabled = false;
+        if (rb) { rb.linearVelocity = Vector2.zero; rb.simulated = false; }
+        GameStateManager.I?.Set(GameState.GameOver);
+    }
 
-        // stop physics
-        if (rb)
+    // TEMP: press K to simulate death and test the chain
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            rb.linearVelocity = Vector2.zero;
-            rb.simulated = false;
+            Debug.Log("[DeathHandler] DEBUG K pressed → HandleDeath()");
+            HandleDeath();
         }
-
-        // disable behaviours (movement, animator, etc.)
-        foreach (var b in disableOnDeath)
-            if (b) b.enabled = false;
-
-        // hide player sprites
-        foreach (var sr in renderersToHide)
-            if (sr) sr.enabled = false;
-
-        // hide UI groups
-        foreach (var go in uiRootsToHide)
-            if (go) go.SetActive(false);
     }
 }
