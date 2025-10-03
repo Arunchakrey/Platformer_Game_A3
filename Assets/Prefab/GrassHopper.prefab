@@ -154,7 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 8
-  player: {fileID: 4791829009208914569, guid: 175e6d46e20c89b4ca7a6ce2b0e75fb9, type: 3}
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
