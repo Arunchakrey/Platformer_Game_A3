@@ -25,9 +25,6 @@ public class EnemyWalk : MonoBehaviour
         //Player Direction
         float direction = Mathf.Sign(player.position.x - transform.position.x);
 
-        //Player above detection
-        bool isPlayerAbove = Physics2D.Raycast(transform.position, Vector2.up, 3f, 1 << player.gameObject.layer);
-
         if (isGrounded)
         {
             //chase player
@@ -46,13 +43,5 @@ public class EnemyWalk : MonoBehaviour
         //set animation parameter
         float horizontalSpeed = Mathf.Abs(rb.linearVelocityX);
         anim.SetFloat("speed", horizontalSpeed);
-    }
-
-    void FixedUpdate()
-    {
-        // if (isGrounded)
-        // {
-        //     Vector2 direction = (player.position - transform.position).normalized;
-        // }
     }
 }

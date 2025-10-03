@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3622e6b80c8241043bfb6745a60b5a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 4791829009208914569, guid: 175e6d46e20c89b4ca7a6ce2b0e75fb9, type: 3}
   chaseSpeed: 2
   groundLayer:
     serializedVersion: 2
