@@ -45,7 +45,7 @@ public class EnemyWalk : MonoBehaviour
         
         //set animation parameter
         float horizontalSpeed = Mathf.Abs(rb.linearVelocityX);
-        anim.SetFloat("speed", horizontalSpeed); // dampTime=0.1f feels smooth
+        anim.SetFloat("speed", horizontalSpeed);
     }
 
     void FixedUpdate()
