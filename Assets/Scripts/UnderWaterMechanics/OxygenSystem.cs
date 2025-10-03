@@ -8,7 +8,7 @@ public class OxygenSystem : MonoBehaviour
     [SerializeField] float drainPerSec = 1f, refillPerSec = 3f;
 
     [Header("Surface (Y height)")]
-    [SerializeField] float surfaceY = 0f;
+    [SerializeField] float surfaceY = 7f;
 
     float oxy;
     public float CurrentOxygen => oxy;

@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:Assets/Art/Sprites/Characters.meta
 guid: 2df177cb289e5ce48aa0ac35a494c126
+========
+guid: 15e5d16799a43964986f331d021637c7
+>>>>>>>> origin/main:Assets/Art/Sprites/Pickup.meta
+=======
+<<<<<<< HEAD
+guid: 3864e9cb6b01fec45b4b560c64a2c1b6
+=======
+guid: 2df177cb289e5ce48aa0ac35a494c126
+>>>>>>> d160a40 (Grasshopper)
+>>>>>>> origin/main
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
