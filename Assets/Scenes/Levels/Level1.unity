@@ -33557,6 +33557,10 @@ PrefabInstance:
       value: 0.11808691
       objectReference: {fileID: 0}
     - target: {fileID: 1094741361738202241, guid: 175e6d46e20c89b4ca7a6ce2b0e75fb9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1094741361738202241, guid: 175e6d46e20c89b4ca7a6ce2b0e75fb9, type: 3}
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
@@ -33627,6 +33631,10 @@ PrefabInstance:
     - target: {fileID: 4791829009208914569, guid: 175e6d46e20c89b4ca7a6ce2b0e75fb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5530408859218173949, guid: 175e6d46e20c89b4ca7a6ce2b0e75fb9, type: 3}
+      propertyPath: m_Simulated
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5943097852511243283, guid: 175e6d46e20c89b4ca7a6ce2b0e75fb9, type: 3}
       propertyPath: healthUI
