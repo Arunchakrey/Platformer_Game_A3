@@ -27174,7 +27174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: {fileID: 0}
-  target: 1
+  target: 5
   delay: 0.4
   fallbackScene: LevelSelect
   fadeDuration: 0.5
