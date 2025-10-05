@@ -60,6 +60,7 @@ Playable build link: **itch.io**
 - Some sprites are not used as prefabs
 - Unoptimized game
 - Unorganized scripts
+- On gameover screen, mouse button might disappear (not sure why this happens, works okay in unity editor).
 
 ### F) Third-Party Assets & Credits
 
