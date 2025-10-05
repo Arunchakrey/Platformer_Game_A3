@@ -42,9 +42,10 @@ public class EnemyWalk : MonoBehaviour
         {
             transform.localScale = new Vector3(2, 2, 2);
         }
-        
+
         //set animation parameter
         float horizontalSpeed = Mathf.Abs(rb.linearVelocityX);
+        anim.SetFloat("speed", horizontalSpeed);
         anim.SetFloat("speed", horizontalSpeed); // dampTime=0.1f feels smooth
     }
 

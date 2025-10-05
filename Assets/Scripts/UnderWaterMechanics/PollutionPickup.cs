@@ -5,13 +5,6 @@ using UnityEngine;
 public class PollutionPickup : MonoBehaviour
 {
     [SerializeField] PollutionItem data;
-    [Header("Idle motion")]
-    [SerializeField] bool autoRotate = true;
-    [SerializeField] float rotateSpeed = 45f;
-    [SerializeField] float bobAmplitude = 0.05f;
-    [SerializeField] float bobSpeed = 2f;
-
-    // Optional VFX: put a ParticleSystem as a CHILD named "PickupVFX" (or assign via Inspector)
     [SerializeField] ParticleSystem vfxInChild;
 
     Vector3 startPos;
@@ -20,42 +13,39 @@ public class PollutionPickup : MonoBehaviour
     Collider2D col;
 
     void Awake(){
-        col = GetComponent<Collider2D>(); col.isTrigger = true;
+        col = GetComponent<Collider2D>();
+        col.isTrigger = true;
         sr = GetComponent<SpriteRenderer>();
         if (!vfxInChild) vfxInChild = GetComponentInChildren<ParticleSystem>(true);
         startPos = transform.position;
     }
 
-    void Update(){
-        if (autoRotate) transform.Rotate(0f, 0f, rotateSpeed * Time.deltaTime);
-        if (bobAmplitude > 0f)
-            transform.position = startPos + new Vector3(0f, Mathf.Sin(Time.time * bobSpeed) * bobAmplitude, 0f);
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (collected) return;
-        var score = other.GetComponent<PlayerScore>();
-        if (!score) return;
+
+        // Prefer the player’s root PlayerScore; fallback to scene find if null
+        var score = other.GetComponentInParent<PlayerScore>();
+        if (!score) score = FindAnyObjectByType<PlayerScore>();
+
+        if (!score){
+            Debug.LogWarning($"[Pickup] No PlayerScore found. Trigger by '{other.name}'. " +
+                             "Ensure PlayerScore is on the player ROOT object.");
+            return;
+        }
 
         collected = true;
         int pts = data ? data.points : 1;
-        score.Add(pts);
+        score.Add(Mathf.Max(1, pts));              // <-- actually increments score
+        Debug.Log($"[Pickup] +{pts} from {name} by {other.name}");
 
-        if (data && data.pickupSfx)
-            AudioSource.PlayClipAtPoint(data.pickupSfx, transform.position, 0.8f);
-
-        // play child VFX without prefabs
+        if (data && data.pickupSfx) AudioSource.PlayClipAtPoint(data.pickupSfx, transform.position, 0.8f);
         if (vfxInChild){
-            vfxInChild.transform.SetParent(null, true); // detach so we can destroy pickup
+            vfxInChild.transform.SetParent(null, true);
             vfxInChild.Play(true);
             Destroy(vfxInChild.gameObject, vfxInChild.main.duration + vfxInChild.main.startLifetime.constantMax + 0.2f);
         }
 
-        // floating +X text (no prefab)
-        FloatingTextManager.Show($"+{pts}", transform.position);
-
-        // hide & remove this pickup
         sr.enabled = false;
         col.enabled = false;
         Destroy(gameObject, 0.05f);

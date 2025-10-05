@@ -1,37 +1,73 @@
 using System;
+using System.Collections;
 using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.InputSystem.Android.LowLevel;
+using UnityEngine.Events;
+
 
 public class PlayerHealthScript : MonoBehaviour
 {
-    public int MaxHealth = 5;
-    private int currentHealth;
-    //public HealthUI healthUI;
-    private SpriteRenderer spriteRenderer;
-    public static event Action OnPlayedDied;
+    [Header("Health")]
+    public int maxHealth = 5;
+    public int CurrentHealth { get; private set; }
+    public UnityEvent OnDied;
 
-    void Start()
+    [Header("UI (optional)")]
+    public HealthUI healthUI;
+
+    [Header("Visual")]
+    [SerializeField] private SpriteRenderer spriteRenderer; // auto-filled if null
+    [SerializeField] private Color flashColor = Color.red;
+    [SerializeField] private float flashTime = 0.2f;
+
+    private bool isDead;
+
+    void Awake()
     {
-        ResetHealth();
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        //AndroidGameControllerState.OnReset += ResetHealth;
-
-
-    }
-
-    private void ResetHealth()
-    {
-
+        if (!spriteRenderer) spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
+        CurrentHealth = maxHealth;
+        if (healthUI) healthUI.SetMaxHearts(maxHealth);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IItem enemy = collision.GetComponent<IItem>();
-        // if (enemy)
-        // {
+        Enemy enemy = collision.GetComponent<Enemy>();
+        if (enemy)
+        {
+            TakeDamage(enemy.damage);
+        }
+        TrapScript trap = collision.GetComponent<TrapScript>();
+        if (trap && trap.damage > 0)
+        {
+            TakeDamage(trap.damage);
+        }
+    }
 
-        // }
+    public void TakeDamage(int damage)
+    {
+        if (isDead) return;
+
+        CurrentHealth = Mathf.Max(0, CurrentHealth - Mathf.Max(0, damage));
+        if (healthUI) healthUI.UpdateHearts(CurrentHealth);
+
+        StartCoroutine(FlashRed());
+
+        if (CurrentHealth <= 0)
+            Die();
+    }
+
+    private IEnumerator FlashRed()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.color = Color.white;
+    }
+
+    private void Die()
+    {
+        if (isDead) return;
+        isDead = true;
+        OnDied?.Invoke();
     }
 }

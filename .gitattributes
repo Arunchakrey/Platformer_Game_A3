@@ -1,0 +1,15 @@
+# Unity YAML assets (use text merges with Smart Merge)
+*.unity  merge=unityyamlmerge text
+*.prefab merge=unityyamlmerge text
+*.asset  merge=unityyamlmerge text
+*.anim   merge=unityyamlmerge text
+*.mat    merge=unityyamlmerge text
+*.meta   merge=unityyamlmerge text
+
+# Binary stuff (never diff/merge)
+*.png  -text
+*.jpg  -text
+*.psd  -text
+*.fbx  -text
+*.wav  -text
+*.mp3  -text

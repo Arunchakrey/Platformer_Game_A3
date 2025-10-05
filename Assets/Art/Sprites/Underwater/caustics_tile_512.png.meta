@@ -1,10 +1,19 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Art/Sprites/Pickup/Sapling_ChatGPT_image.png.meta
+guid: a5e277661fd374fb3a2480ccaaaf2761
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -874183727653161094
+    second: Sapling_ChatGPT_image_0
+========
 guid: 8d287a3f129ba184e814e1d14a9ab9ec
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -7336773587397701797
     second: caustics_tile_512_0
+>>>>>>>> origin/main:Assets/Art/Sprites/Underwater/caustics_tile_512.png.meta
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,6 +105,8 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<<< HEAD:Assets/Art/Sprites/Pickup/Sapling_ChatGPT_image.png.meta
+========
   - serializedVersion: 4
     buildTarget: WebGL
     maxTextureSize: 2048
@@ -109,10 +120,22 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+>>>>>>>> origin/main:Assets/Art/Sprites/Underwater/caustics_tile_512.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+<<<<<<<< HEAD:Assets/Art/Sprites/Pickup/Sapling_ChatGPT_image.png.meta
+      name: Sapling_ChatGPT_image_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 1021
+        height: 1530
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+========
       name: caustics_tile_512_0
       rect:
         serializedVersion: 2
@@ -122,14 +145,20 @@ TextureImporter:
         height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
+>>>>>>>> origin/main:Assets/Art/Sprites/Underwater/caustics_tile_512.png.meta
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
+<<<<<<<< HEAD:Assets/Art/Sprites/Pickup/Sapling_ChatGPT_image.png.meta
+      spriteID: a777ec408864ed3f0800000000000000
+      internalID: -874183727653161094
+========
       spriteID: b5f01bd4b4b8e2a90800000000000000
       internalID: -7336773587397701797
+>>>>>>>> origin/main:Assets/Art/Sprites/Underwater/caustics_tile_512.png.meta
       vertices: []
       indices: 
       edges: []
@@ -138,7 +167,11 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
+<<<<<<<< HEAD:Assets/Art/Sprites/Pickup/Sapling_ChatGPT_image.png.meta
+    spriteID: 2fba7f8fff0341044b7617b069a20e6a
+========
     spriteID: 
+>>>>>>>> origin/main:Assets/Art/Sprites/Underwater/caustics_tile_512.png.meta
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +181,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+<<<<<<<< HEAD:Assets/Art/Sprites/Pickup/Sapling_ChatGPT_image.png.meta
+      Sapling_ChatGPT_image_0: -874183727653161094
+========
       caustics_tile_512_0: -7336773587397701797
+>>>>>>>> origin/main:Assets/Art/Sprites/Underwater/caustics_tile_512.png.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

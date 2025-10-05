@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class TrapScript : MonoBehaviour
 {
+<<<<<<< HEAD
     [Header("Effects")]
     public int damage = 1;
     public Vector2 knockback = new Vector2(6f, 4f); // x = horizontal push, y = upward pop
@@ -38,4 +39,38 @@ public class TrapScript : MonoBehaviour
             rb.AddForce(impulse, ForceMode2D.Impulse);
         }
     }
+=======
+    public float bounceForce = 10f;
+    public int damage = 1;
+
+    private void OnTriggerEnter2D(Collider2D  collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            HandlePlayerBounce(collision.gameObject);
+            Debug.Log("Same Tag as expected: Player");
+        }
+    }
+
+    private void HandlePlayerBounce(GameObject player)
+    {
+        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+        Animator anim = player.GetComponent<Animator>();
+        Debug.Log("Got player Object");
+
+        if (rb)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+
+            //apply bounce force
+            rb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+            Debug.Log("Jump!!!");
+            anim.SetTrigger("jump");
+            //parameter for animation
+
+
+        }
+    }
+        
+>>>>>>> 06c448357a009321dc8654cdf0205bc1a303a5dd
 }

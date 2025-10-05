@@ -1,5 +1,4 @@
 using System;
-using UnityEditor;
 using UnityEngine;
 
 public enum GameState { Playing, Paused, GameOver }
@@ -29,5 +28,6 @@ public class GameStateManager : MonoBehaviour
         State = s;
         Time.timeScale = (s == GameState.GameOver || s == GameState.Paused) ? 0f : 1f;
         OnChanged?.Invoke(State);
+        Debug.Log($"[GSM] State -> {State}");
     }
 }

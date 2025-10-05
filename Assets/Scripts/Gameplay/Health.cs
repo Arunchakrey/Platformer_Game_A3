@@ -24,7 +24,11 @@ public class Health : MonoBehaviour
         if (CurrentHearts <= 0) return;
         CurrentHearts = Mathf.Max(0, CurrentHearts - Mathf.Max(1, amount));
         OnHealthChanged.Invoke(CurrentHearts, MaxHearts);
-        if (CurrentHearts == 0) OnDied.Invoke();
+        if (CurrentHearts == 0)
+        {
+            Debug.Log("[Health] Died -> invoking OnDied");
+            OnDied?.Invoke();
+        }
     }
 
     public void Heal(int amount = 1)
