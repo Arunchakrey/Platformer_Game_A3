@@ -2726,7 +2726,7 @@ Transform:
   m_GameObject: {fileID: 1277837261}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1284084, y: -1.3827953, z: -10}
+  m_LocalPosition: {x: -7.486603, y: -1.3838276, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3390,7 +3390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: {fileID: 0}
-  target: 8
+  target: 3
   delay: 0.4
   fallbackScene: LevelSelect
   fadeDuration: 0.5
