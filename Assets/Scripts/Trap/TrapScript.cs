@@ -1,34 +1,38 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
 public class TrapScript : MonoBehaviour
 {
+    public float bounceForce = 10f;
     public int damage = 1;
-    public Vector2 knockback = new Vector2(6f, 4f); // push & pop
 
-    void Reset()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Ensure this collider is a trigger so OnTriggerEnter2D fires
-        var col = GetComponent<Collider2D>();
-        col.isTrigger = true;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.CompareTag("Player")) return;
-
-        // 1) Damage (if player has a Health component)
-        var health = other.GetComponent<Health>();
-        if (health != null) health.Damage(damage);
-
-        // 2) Knockback away from trap
-        var rb = other.attachedRigidbody;
-        if (rb != null)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            rb.velocity = new Vector2(0f, rb.velocity.y);
-            float dir = Mathf.Sign(other.transform.position.x - transform.position.x);
-            if (dir == 0) dir = 1f;
-            rb.AddForce(new Vector2(knockback.x * dir, knockback.y), ForceMode2D.Impulse);
+            HandlePlayerBounce(collision.gameObject);
+            Debug.Log("Same Tag as expected: Player");
         }
     }
+
+    private void HandlePlayerBounce(GameObject player)
+    {
+        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
+        Animator anim = player.GetComponent<Animator>();
+        Debug.Log("Got player Object");
+
+        if (rb)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+
+            //apply bounce force
+            rb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+            Debug.Log("Jump!!!");
+            anim.SetTrigger("jump");
+            //parameter for animation
+
+
+        }
+    }
+
 }
