@@ -66,5 +66,9 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
+<<<<<<< HEAD
     "dotnet.defaultSolution": "Platformer_Game.sln"
+=======
+    "dotnet.defaultSolution": "Platformer_Game_FINAL.sln"
+>>>>>>> 3950788 (my files)
 }
