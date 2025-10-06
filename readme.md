@@ -61,6 +61,7 @@ Playable build link: **itch.io**
 - Unoptimized game
 - Unorganized scripts
 - On gameover screen, mouse button might disappear (not sure why this happens, works okay in unity editor).
+- Level 1 sapling collector is inconsistent, might be the collider bug.
 
 ### F) Third-Party Assets & Credits
 
