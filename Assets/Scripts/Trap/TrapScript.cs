@@ -25,7 +25,7 @@ public class TrapScript : MonoBehaviour
         var rb = other.attachedRigidbody;
         if (rb != null)
         {
-            rb.velocity = new Vector2(0f, rb.velocity.y);
+            rb.linearVelocity = new Vector2(0f, rb.linearVelocity.y);
             float dir = Mathf.Sign(other.transform.position.x - transform.position.x);
             if (dir == 0) dir = 1f;
             rb.AddForce(new Vector2(knockback.x * dir, knockback.y), ForceMode2D.Impulse);

@@ -39,32 +39,32 @@ public class PlayerMovementL4 : MonoBehaviour
         if (Mathf.Abs(axis) > 0.01f) horizontalMovement = axis;
 
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
-            body.velocity = new Vector2(body.velocity.x, jumpForce);
+            body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForce);
 
-        if (Input.GetKeyUp(KeyCode.Space) && body.velocity.y > 0f)
-            body.velocity = new Vector2(body.velocity.x, body.velocity.y * 0.5f);
+        if (Input.GetKeyUp(KeyCode.Space) && body.linearVelocity.y > 0f)
+            body.linearVelocity = new Vector2(body.linearVelocity.x, body.linearVelocity.y * 0.5f);
 
         // Face direction
         if (horizontalMovement > 0.01f) transform.localScale = new Vector3(3, 3, 3);
         else if (horizontalMovement < -0.01f) transform.localScale = new Vector3(-3, 3, 3);
 
-        // Optional animator params — only if they exist
+        // Optional animator params ï¿½ only if they exist
         if (anim)
         {
-            TrySetFloat(anim, "yVelocity", body.velocity.y);
-            TrySetFloat(anim, "magnitude", body.velocity.magnitude);
+            TrySetFloat(anim, "yVelocity", body.linearVelocity.y);
+            TrySetFloat(anim, "magnitude", body.linearVelocity.magnitude);
         }
     }
 
     void FixedUpdate()
     {
-        body.velocity = new Vector2(horizontalMovement * speed, body.velocity.y);
+        body.linearVelocity = new Vector2(horizontalMovement * speed, body.linearVelocity.y);
 
         // custom gravity / terminal velocity
-        if (body.velocity.y < 0f)
+        if (body.linearVelocity.y < 0f)
         {
             body.gravityScale = baseGravity * fallSpeedMultiplier;
-            body.velocity = new Vector2(body.velocity.x, Mathf.Max(body.velocity.y, -maxFallSpeed));
+            body.linearVelocity = new Vector2(body.linearVelocity.x, Mathf.Max(body.linearVelocity.y, -maxFallSpeed));
         }
         else
         {
