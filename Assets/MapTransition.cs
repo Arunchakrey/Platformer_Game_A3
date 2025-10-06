@@ -1,6 +1,4 @@
 using Unity.Cinemachine;
-using Unity.VisualScripting;
-using UnityEditor.Search;
 using UnityEngine;
 
 public class MapTransition : MonoBehaviour
@@ -27,6 +25,6 @@ public class MapTransition : MonoBehaviour
 
     // private void UpdatePlayerPosition(gameObject Player)
     // {
-        
+
     // }
 }
