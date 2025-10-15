@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f415ea80a0c85014e8a48da95f6abe6d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 238393
+  packageName: Super Grotto Escape Pack
+  packageVersion: 1.0
+  assetPath: Assets/Super Grotto Escape/Characters/Player/Player-Ladder/ladder-Animation.anim
+  uploadId: 545561

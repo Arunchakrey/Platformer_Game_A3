@@ -1,0 +1,1 @@
+public enum PickupType {Health, Sapling, Gem}
