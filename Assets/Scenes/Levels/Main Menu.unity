@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 5533619}
   - component: {fileID: 5533618}
   - component: {fileID: 5533617}
+  - component: {fileID: 5533620}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -251,6 +252,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5533615}
   m_CullTransparentMesh: 1
+--- !u!114 &5533620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 0.6273585, g: 1, b: 0.935682, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1 &62077897
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,6 +523,7 @@ GameObject:
   - component: {fileID: 587996431}
   - component: {fileID: 587996430}
   - component: {fileID: 587996432}
+  - component: {fileID: 587996433}
   m_Layer: 0
   m_Name: gamestate
   m_TagString: Untagged
@@ -553,6 +571,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstLevel: Level1
+--- !u!114 &587996433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587996428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f56eac84c754e32bdf1fd0bf08b160, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &915091139
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +881,7 @@ GameObject:
   - component: {fileID: 1092322874}
   - component: {fileID: 1092322873}
   - component: {fileID: 1092322872}
+  - component: {fileID: 1092322875}
   m_Layer: 5
   m_Name: level3
   m_TagString: Untagged
@@ -972,6 +1003,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092322870}
   m_CullTransparentMesh: 1
+--- !u!114 &1092322875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092322870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1 &1374118346
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +1031,7 @@ GameObject:
   - component: {fileID: 1374118350}
   - component: {fileID: 1374118349}
   - component: {fileID: 1374118348}
+  - component: {fileID: 1374118351}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -1104,6 +1152,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374118346}
   m_CullTransparentMesh: 1
+--- !u!114 &1374118351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374118346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1 &1374603079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1252,6 +1316,7 @@ GameObject:
   - component: {fileID: 1508902176}
   - component: {fileID: 1508902175}
   - component: {fileID: 1508902174}
+  - component: {fileID: 1508902177}
   m_Layer: 5
   m_Name: level1
   m_TagString: Untagged
@@ -1373,6 +1438,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508902172}
   m_CullTransparentMesh: 1
+--- !u!114 &1508902177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508902172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1 &1521618278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1494,6 +1575,7 @@ GameObject:
   - component: {fileID: 1814623522}
   - component: {fileID: 1814623521}
   - component: {fileID: 1814623520}
+  - component: {fileID: 1814623523}
   m_Layer: 5
   m_Name: level2
   m_TagString: Untagged
@@ -1615,6 +1697,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814623518}
   m_CullTransparentMesh: 1
+--- !u!114 &1814623523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814623518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1 &1844779692
 GameObject:
   m_ObjectHideFlags: 0
