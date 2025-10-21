@@ -19,4 +19,9 @@ public class GameInput : MonoBehaviour
 
         return inputVector;
     }
+
+    public bool IsJumping()
+    {
+        return playerInputActions.Player.Jump.WasPressedThisFrame();
+    }
 }
