@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 91967530}
   - component: {fileID: 91967529}
   - component: {fileID: 91967528}
+  - component: {fileID: 91967531}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -251,6 +252,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91967526}
   m_CullTransparentMesh: 1
+--- !u!114 &91967531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91967526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1001 &102511679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -555,6 +572,7 @@ GameObject:
   - component: {fileID: 557356746}
   - component: {fileID: 557356745}
   - component: {fileID: 557356744}
+  - component: {fileID: 557356747}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -675,6 +693,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557356742}
   m_CullTransparentMesh: 1
+--- !u!114 &557356747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557356742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1001 &562663605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -921,8 +955,8 @@ RectTransform:
   m_GameObject: {fileID: 880321441}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.6906804}
-  m_LocalScale: {x: 0.55259806, y: 0.55259806, z: 0.55259806}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 13.6, y: 13.6, z: 13.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1809661801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2726,7 +2760,7 @@ Transform:
   m_GameObject: {fileID: 1277837261}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.486603, y: -1.3838276, z: -10}
+  m_LocalPosition: {x: -7.035435, y: -1.3834869, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2915,9 +2949,9 @@ Transform:
   m_GameObject: {fileID: 1469466413}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.31839, y: 25.250458, z: -1.6087016}
-  m_LocalScale: {x: 0.95150995, y: 0.95150995, z: 0.95150995}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -6.31, y: 48.02, z: -3.05}
+  m_LocalScale: {x: 1.809, y: 1.809, z: 1.809}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 855468307}
   - {fileID: 889717306}
@@ -2938,6 +2972,7 @@ GameObject:
   - component: {fileID: 1614146612}
   - component: {fileID: 1614146611}
   - component: {fileID: 1614146610}
+  - component: {fileID: 1614146613}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -3058,6 +3093,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1614146608}
   m_CullTransparentMesh: 1
+--- !u!114 &1614146613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614146608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1 &1809661800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3084,8 +3135,8 @@ Transform:
   m_GameObject: {fileID: 1809661800}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.3875732, y: 33.386353, z: -2.1270394}
-  m_LocalScale: {x: 1.2580999, y: 1.2580999, z: 1.2580999}
+  m_LocalPosition: {x: -6.31, y: 48.02, z: -3.05}
+  m_LocalScale: {x: 1.809, y: 1.809, z: 1.809}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 880321442}
@@ -3195,6 +3246,7 @@ GameObject:
   - component: {fileID: 1916266823}
   - component: {fileID: 1916266822}
   - component: {fileID: 1916266821}
+  - component: {fileID: 1916266824}
   m_Layer: 5
   m_Name: Retry
   m_TagString: Untagged
@@ -3315,6 +3367,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1916266819}
   m_CullTransparentMesh: 1
+--- !u!114 &1916266824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916266819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1 &1956141804
 GameObject:
   m_ObjectHideFlags: 0
@@ -3433,6 +3501,7 @@ GameObject:
   - component: {fileID: 1984833417}
   - component: {fileID: 1984833416}
   - component: {fileID: 1984833415}
+  - component: {fileID: 1984833418}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -3553,6 +3622,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984833413}
   m_CullTransparentMesh: 1
+--- !u!114 &1984833418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984833413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1001 &2035264503
 PrefabInstance:
   m_ObjectHideFlags: 0
