@@ -13,25 +13,13 @@ public class Player : MonoBehaviour
     private bool isWalking;
     private bool isGrounded;
     private Rigidbody rb;
-    private CapsuleCollider capsule;
-    private Vector3 moveDir;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        if (rb == null)
+        if(rb == null)
         {
             rb = gameObject.AddComponent<Rigidbody>();
-        }
-
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        rb.interpolation = RigidbodyInterpolation.Interpolate;
-
-        capsule = GetComponentInChildren<CapsuleCollider>();
-        if (capsule == null)
-        {
-            Debug.LogError("Player: No CapsuleCollider found on child.");
         }
     }
 
@@ -41,53 +29,48 @@ public class Player : MonoBehaviour
         HandleMovement();
     }
 
-    private void FixedUpdate()
-    {
-        MoveWithPhysics();
-    }
-
-    private void MoveWithPhysics()
-    {
-        if (!isWalking) return;
-        if (capsule == null) return;
-
-        // Build a world-space capsule from the child collider
-        Vector3 center = capsule.transform.TransformPoint(capsule.center);
-        Vector3 up = capsule.transform.up;
-
-        float scaledHeight = capsule.height * capsule.transform.lossyScale.y;
-        float scaledRadius = capsule.radius * Mathf.Max(capsule.transform.lossyScale.x, capsule.transform.lossyScale.z);
-        float half = Mathf.Max(0f, (scaledHeight * 0.5f) - scaledRadius);
-
-        Vector3 p1 = center + up * half; // top sphere center
-        Vector3 p2 = center - up * half; // bottom sphere center
-
-        Vector3 dirNorm = moveDir.normalized;
-        float step = movementSpeed * Time.fixedDeltaTime;
-
-        // Blocked if our capsule would hit something in the next step
-        bool blocked = Physics.CapsuleCast(
-            p1, p2, scaledRadius - 0.01f, dirNorm,
-            out _, step + 0.02f, ~0, QueryTriggerInteraction.Ignore
-        );
-
-        if (!blocked)
-        {
-            // Move with Rigidbody so collisions are respected
-            rb.MovePosition(rb.position + dirNorm * step);
-        }
-        // else: we’re blocked; do nothing (you can add slide logic later)
-    }
-
     private void HandleMovement()
     {
         Vector2 inputVector = gameInput.GetMovementVecotorNormalized();
-        moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
-        float playerSize = 0.7f;
-        bool canMove = Physics.Raycast(transform.position, moveDir, playerSize);
+        float playerRadius = 0.5f;
+        float playerHeight = 2;
+        float moveDistance = movementSpeed * Time.deltaTime;
+        
+        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
 
         isWalking = moveDir.sqrMagnitude > 0.0001f;
+
+        if (!canMove)
+        {
+            //cannot move towards moveDir
+
+            //Attempt only x
+            Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
+            canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
+            if (canMove)
+            {
+                //Can only move on X
+                moveDir = moveDirX;
+            } else
+            {
+                //Cannot move only on the x
+
+                //attempt only z movement
+                Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
+                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
+                if (canMove)
+                {
+                    //can move only z
+                    moveDir = moveDirZ;
+                }
+                else
+                {
+                    //Cannot move in any direction
+                }
+            }
+        }
 
         // rotate only if we have input
         if (canMove)
@@ -99,6 +82,9 @@ public class Player : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * rotateSpeed);
             }
         }
+        
+
+    
         // move every frame based on input
         transform.position += moveDir * movementSpeed * Time.deltaTime;
     }
