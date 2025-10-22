@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fc7b514b4fb4cb94c8ad87195cceac0f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 112000000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 79870
+  packageName: 'Character Pack: Free Sample'
+  packageVersion: 3.0.0
+  assetPath: Assets/Supercyan Character Pack Free Sample/Scenes/DemoScene/LightingData.asset
+  uploadId: 691337

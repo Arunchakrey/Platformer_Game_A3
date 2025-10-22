@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5f59ab9718acb0947889cb9b9f71d17e
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 79870
+  packageName: 'Character Pack: Free Sample'
+  packageVersion: 3.0.0
+  assetPath: Assets/Supercyan Character Pack Free Sample/Prefabs/WithAccessoryLogic/Mobile/Mobile_FreeSample_backpack_1_onWear_WithAccessoryLogic.prefab
+  uploadId: 691337
