@@ -12,6 +12,8 @@ TagManager:
   - Spring
   - Spike
   - NPC
+  - CinemachineTarget
+  - PlantSpot
   layers:
   - Default
   - TransparentFX
@@ -20,9 +22,9 @@ TagManager:
   - Water
   - UI
   - Food
-  - 
+  - Player
   - Ground
-  - 
+  - Enemy
   - 
   - 
   - 
