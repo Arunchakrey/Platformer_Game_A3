@@ -3,12 +3,12 @@ using UnityEngine;
 public class TreePlanting : MonoBehaviour
 {
     [Header("References")]
-    public GameObject treePrefab;       // Assign your Tree prefab here
+    public GameObject treePrefab;       
     public float plantingDistance = 2f; // How close the player needs to be
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) // Press E to plant
+        if (Input.GetKeyDown(KeyCode.P))
         {
             TryPlantTree();
         }
