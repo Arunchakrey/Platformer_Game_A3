@@ -15,8 +15,23 @@ public class Health : MonoBehaviour
 
     void Awake()
     {
+        ApplyDifficultySettings();
         CurrentHearts = Mathf.Max(1, spawnedHealth);
         OnHealthChanged.Invoke(CurrentHearts, MaxHearts);
+    }
+
+    void ApplyDifficultySettings()
+    {
+        if (DifficultyManager.Instance != null)
+        {
+            maxHearts = DifficultyManager.Instance.GetPlayerMaxHealth();
+            spawnedHealth = Mathf.Max(1, maxHearts - 2); // Start with max-2 health
+            Debug.Log($"Health (Water): Max hearts set to {maxHearts}, spawned with {spawnedHealth} based on difficulty");
+        }
+        else
+        {
+            Debug.LogWarning("Health (Water): DifficultyManager not found, using default maxHearts");
+        }
     }
 
     public void Damage(int amount = 1)

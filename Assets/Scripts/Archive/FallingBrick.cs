@@ -6,11 +6,22 @@ public class FallingBrick : MonoBehaviour
     [Header("Drop Trigger")]
     public Collider2D sensor;            // a child trigger that detects the player underneath
     public string playerTag = "Player";
-    public float dropDelay = 0.05f;      // slight delay before falling (feels better)
+
+    [Header("Difficulty-Controlled Values (Base)")]
+    [Tooltip("Base drop delay (will be overridden by difficulty settings)")]
+    public float dropDelayBase = 0.5f;
+
+    [Tooltip("Base damage amount (will be overridden by difficulty settings)")]
+    public int damageBase = 1;
+
+    [Tooltip("Base gravity scale (will be overridden by difficulty settings)")]
+    public float gravityScaleBase = 5f;
 
     [Header("Damage & Knockback")]
-    public int damage = 1;
     public Vector2 knockback = new Vector2(6f, 4f);  // x pushes away, y pops up
+
+    [Header("Debug")]
+    public bool debugMode = false;
 
     [Header("Reset")]
     public bool resetAfterFall = true;
@@ -20,6 +31,11 @@ public class FallingBrick : MonoBehaviour
     Vector3 startPos;
     Quaternion startRot;
     bool hasDropped;
+
+    // Runtime difficulty-adjusted values
+    private float actualDropDelay;
+    private int actualDamage;
+    private float actualGravityScale;
 
     void Awake()
     {
@@ -33,22 +49,48 @@ public class FallingBrick : MonoBehaviour
 
         if (sensor == null)
             Debug.LogWarning($"{name}: Assign a child trigger collider as 'sensor' on FallingBrick.");
+
+        ApplyDifficultySettings();
+    }
+
+    void Start()
+    {
+        ApplyDifficultySettings();
+    }
+
+    void ApplyDifficultySettings()
+    {
+        if (DifficultyManager.Instance != null)
+        {
+            actualDropDelay = DifficultyManager.Instance.GetBrickDropDelay();
+            actualDamage = DifficultyManager.Instance.GetDamageAmount();
+            actualGravityScale = DifficultyManager.Instance.GetBrickFallSpeed();
+
+            if (debugMode)
+            {
+                Debug.Log($"{name}: Applied difficulty settings - Delay: {actualDropDelay}s, Damage: {actualDamage}, Gravity: {actualGravityScale}");
+            }
+        }
+        else
+        {
+            actualDropDelay = dropDelayBase;
+            actualDamage = damageBase;
+            actualGravityScale = gravityScaleBase;
+
+            if (debugMode) Debug.LogWarning($"{name}: DifficultyManager not found, using base values");
+        }
     }
 
     void OnEnable()
     {
         if (sensor) sensor.isTrigger = true;
-        // Subscribe to the sensor�s trigger events via messages
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // If the *brick* collider is set to trigger, ignore.
-        // The drop is handled by the child sensor via this safe path:
         if (sensor != null && other == sensor) return;
     }
 
-    // Attach this to the SENSOR child via the built-in Unity message relay:
     void OnDrawGizmosSelected()
     {
         if (sensor)
@@ -58,17 +100,25 @@ public class FallingBrick : MonoBehaviour
         }
     }
 
-    // Put this on the sensor child using a small helper
     public void SensorEnter(Collider2D other)
     {
         if (hasDropped || !other.CompareTag(playerTag)) return;
+
+        if (debugMode)
+        {
+            Debug.Log($"{name}: Player detected under brick, dropping in {actualDropDelay}s");
+        }
+
         hasDropped = true;
-        Invoke(nameof(BeginFall), dropDelay);
+        Invoke(nameof(BeginFall), actualDropDelay);
     }
 
     void BeginFall()
     {
-        rb.bodyType = RigidbodyType2D.Dynamic; // let gravity pull it down
+        if (debugMode) Debug.Log($"{name}: Beginning fall with gravity scale {actualGravityScale}");
+
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = actualGravityScale;
 
         if (resetAfterFall)
             Invoke(nameof(ResetBrick), resetAfterSeconds);
@@ -86,12 +136,15 @@ public class FallingBrick : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if (!col.collider.CompareTag(playerTag)) return;
+        if (!hasDropped) return;
 
-        // Damage (if your player has a Health component)
         var health = col.collider.GetComponent<Health>();
-        if (health) health.Damage(damage);
+        if (health)
+        {
+            health.Damage(actualDamage);
+            if (debugMode) Debug.Log($"{name}: Dealt {actualDamage} damage to player");
+        }
 
-        // Knockback the player away from the brick
         var prb = col.rigidbody;
         if (prb)
         {

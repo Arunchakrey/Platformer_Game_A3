@@ -26,8 +26,22 @@ public class PlayerHealthScript : MonoBehaviour
     void Awake()
     {
         if (!spriteRenderer) spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
+        ApplyDifficultySettings();
         CurrentHealth = maxHealth;
         if (healthUI) healthUI.SetMaxHearts(maxHealth);
+    }
+
+    void ApplyDifficultySettings()
+    {
+        if (DifficultyManager.Instance != null)
+        {
+            maxHealth = DifficultyManager.Instance.GetPlayerMaxHealth();
+            Debug.Log($"PlayerHealthScript: Max health set to {maxHealth} based on difficulty");
+        }
+        else
+        {
+            Debug.LogWarning("PlayerHealthScript: DifficultyManager not found, using default maxHealth");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
