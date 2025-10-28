@@ -34,16 +34,54 @@ public class Player : MonoBehaviour
         Vector2 inputVector = gameInput.GetMovementVecotorNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
 
+        float playerRadius = 0.5f;
+        float playerHeight = 2;
+        float moveDistance = movementSpeed * Time.deltaTime;
+        
+        bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
+
         isWalking = moveDir.sqrMagnitude > 0.0001f;
 
-        // rotate only if we have input
-        if (isWalking)
+        if (!canMove)
         {
-            float rotateSpeed = 10f;
-            Quaternion targetRot = Quaternion.LookRotation(moveDir, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * rotateSpeed);
+            //cannot move towards moveDir
+
+            //Attempt only x
+            Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
+            canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
+            if (canMove)
+            {
+                //Can only move on X
+                moveDir = moveDirX;
+            } else
+            {
+                //Cannot move only on the x
+
+                //attempt only z movement
+                Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
+                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
+                if (canMove)
+                {
+                    //can move only z
+                    moveDir = moveDirZ;
+                }
+                else
+                {
+                    //Cannot move in any direction
+                }
+            }
         }
 
+        // rotate only if we have input
+        if (canMove)
+        {
+            if (isWalking)
+            {
+                float rotateSpeed = 10f;
+                Quaternion targetRot = Quaternion.LookRotation(moveDir, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * rotateSpeed);
+            }
+        }
         // move every frame based on input
         transform.position += moveDir * movementSpeed * Time.deltaTime;
     }

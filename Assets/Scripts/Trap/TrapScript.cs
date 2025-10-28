@@ -26,6 +26,7 @@ public class TrapScript : MonoBehaviour
 
             //apply bounce force
             rb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+            SoundEffectManager.Play("PlayerJump");
             Debug.Log("Jump!!!");
             anim.SetTrigger("jump");
             //parameter for animation

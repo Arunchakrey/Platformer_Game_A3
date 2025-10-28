@@ -36,11 +36,13 @@ public class PlayerHealthScript : MonoBehaviour
         if (enemy)
         {
             TakeDamage(enemy.damage);
+            SoundEffectManager.Play("PlayerHit");
         }
         TrapScript trap = collision.GetComponent<TrapScript>();
         if (trap && trap.damage > 0)
         {
             TakeDamage(trap.damage);
+            SoundEffectManager.Play("PlayerHit");
         }
     }
 

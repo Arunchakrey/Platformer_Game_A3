@@ -1,0 +1,28 @@
+using System;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GameController : MonoBehaviour
+{
+    private int progressAmount;
+    public Slider progressSlider;
+    private void Start()
+    {
+        progressAmount = 0;
+        progressSlider.value = 0;
+        Pickup.OnSapplingCollect += IncreaseProgressAmount;
+    }
+
+    private void IncreaseProgressAmount(int amount)
+    {
+        progressAmount += amount;
+        progressSlider.value = progressAmount;
+
+        if (progressAmount >= 100)
+        {
+            //level complete
+            Debug.Log("Level Complete");
+        }
+    }
+
+}

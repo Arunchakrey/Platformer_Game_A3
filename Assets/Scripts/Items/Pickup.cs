@@ -1,22 +1,14 @@
+using System;
 using UnityEngine;
 public class Pickup : MonoBehaviour, IItem
 {
-    private PickupType type;
-    private int value = 1;
+    public static event Action<int> OnSapplingCollect;
+    public int worth = 10;
     public void Collect()
     {
-        // switch (type)
-        // {
-        //     case PickupType.Health:
-        //         other.GetComponent<Health>().Heal(value);
-        //         break;
-        //     case PickupType.Sapling:
-        //         other.GetComponent<PlayerInventory>().AddItem(value);
-        //         break;
-        //     case PickupType.Gem:
-        //         other.GetComponent<PlayerInventory>().AddItem(value);
-        //         break;
-        // }
         Destroy(gameObject);
+        SoundEffectManager.Play("Sappling");
+        OnSapplingCollect.Invoke(worth);
     }
 }
+
