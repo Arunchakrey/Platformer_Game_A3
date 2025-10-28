@@ -23,11 +23,21 @@ public class PlayerHealthScript : MonoBehaviour
 
     private bool isDead;
 
+    [Header("Camera Shake")]
+    [SerializeField] private CameraShake cameraShake; 
+    [SerializeField] private float hitAmplitude = 1.4f;
+    [SerializeField] private float hitFrequency = 8f;
+    [SerializeField] private float hitDuration = 0.18f;
+    [SerializeField] private float deathAmplitude = 2.5f;
+    [SerializeField] private float deathFrequency = 6f;
+    [SerializeField] private float deathDuration = 0.35f;
+
     void Awake()
     {
         if (!spriteRenderer) spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
         CurrentHealth = maxHealth;
         if (healthUI) healthUI.SetMaxHearts(maxHealth);
+        if (!cameraShake) cameraShake = FindObjectOfType<CameraShake>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,6 +65,11 @@ public class PlayerHealthScript : MonoBehaviour
 
         StartCoroutine(FlashRed());
 
+        if (cameraShake)
+        {
+            cameraShake.Shake(hitAmplitude, hitFrequency, hitDuration);
+        }
+
         if (CurrentHealth <= 0)
             Die();
     }
@@ -70,6 +85,12 @@ public class PlayerHealthScript : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
+
+        if (cameraShake)
+        {
+            cameraShake.Shake(deathAmplitude, deathFrequency, deathDuration);
+        }
+
         OnDied?.Invoke();
     }
 }
