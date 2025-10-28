@@ -57,6 +57,8 @@ public class SoundEffectManager : MonoBehaviour
     void Start()
     {
         // Disable keyboard navigation on the slider
+        if (sfxSlider == null) return;
+        
         var nav = sfxSlider.navigation;
         nav.mode = Navigation.Mode.None;
         sfxSlider.navigation = nav;
