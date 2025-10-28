@@ -4,9 +4,9 @@ using UnityEngine.InputSystem;
 public class SideScrollerCharacterController : MonoBehaviour
 {
     [Header("2.5D Movement Settings")]
-    public float moveSpeed = 8f;
-    public float jumpForce = 12f;
-    public float groundCheckDistance = 0.1f;
+    public float moveSpeed = 5f;
+    public float jumpForce = 8f;
+    public float groundCheckDistance = 0.2f;
     public LayerMask groundLayers = 1;
 
     [Header("Animation Parameters")]
@@ -15,8 +15,8 @@ public class SideScrollerCharacterController : MonoBehaviour
     public string groundedParam = "Grounded";
 
     [Header("Game Feel")]
-    public float acceleration = 15f;
-    public float deceleration = 20f;
+    public float acceleration = 10f;
+    public float deceleration = 15f;
 
     // Component references
     private Animator m_animator;
@@ -53,43 +53,41 @@ public class SideScrollerCharacterController : MonoBehaviour
     private void Update()
     {
         HandleInput();
-        HandleGroundDetection();
         UpdateAnimator();
     }
 
     private void FixedUpdate()
     {
+        HandleGroundDetection();
         HandleMovement();
         HandleJump();
     }
 
     private void HandleInput()
     {
-        // Jump input (can be called from Input System events)
-        if (Input.GetKeyDown(KeyCode.Space) || m_jumpInput)
-        {
-            TryJump();
-        }
-
         // Get horizontal input (left/right)
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         m_inputDirection = new Vector2(horizontalInput, 0);
+
+        // Jump input
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            m_jumpInput = true;
+        }
     }
 
     private void HandleGroundDetection()
     {
         m_wasGrounded = m_isGrounded;
 
-        // Use sphere cast for more reliable ground detection
-        float sphereRadius = m_collider ? m_collider.radius * 0.9f : 0.3f;
-        Vector3 sphereStart = transform.position + Vector3.up * sphereRadius;
-        float rayLength = (m_collider ? m_collider.height / 2 : 1f) + groundCheckDistance;
+        float sphereRadius = m_collider ? m_collider.radius * 0.8f : 0.3f;
+        Vector3 sphereStart = transform.position + Vector3.up * 0.1f;
+        float rayLength = groundCheckDistance;
 
         RaycastHit hit;
         m_isGrounded = Physics.SphereCast(sphereStart, sphereRadius, Vector3.down, out hit, rayLength, groundLayers);
 
-        // Handle landing event
-        if (!m_wasGrounded && m_isGrounded)
+        if (!m_wasGrounded && m_isGrounded && m_rigidbody.linearVelocity.y <= 0.1f)
         {
             OnLand?.Invoke();
         }
@@ -100,7 +98,7 @@ public class SideScrollerCharacterController : MonoBehaviour
         // Calculate target speed based on input
         float targetSpeed = m_inputDirection.x * moveSpeed;
 
-        // Smooth acceleration and deceleration for better game feel
+        // Smooth acceleration and deceleration
         if (Mathf.Abs(targetSpeed) > 0.1f)
         {
             m_currentHorizontalSpeed = Mathf.MoveTowards(
@@ -118,10 +116,18 @@ public class SideScrollerCharacterController : MonoBehaviour
             );
         }
 
-        // Apply horizontal movement while preserving vertical velocity (for jumping/falling)
-        Vector3 velocity = m_rigidbody.linearVelocity;
-        velocity.x = m_currentHorizontalSpeed;
-        m_rigidbody.linearVelocity = velocity;
+        // NUCLEAR DRIFT FIX
+        if (Mathf.Abs(m_inputDirection.x) < 0.01f)
+        {
+            m_currentHorizontalSpeed = 0f;
+            m_rigidbody.linearVelocity = new Vector3(0, m_rigidbody.linearVelocity.y, 0);
+        }
+        else
+        {
+            Vector3 velocity = m_rigidbody.linearVelocity;
+            velocity.x = m_currentHorizontalSpeed;
+            m_rigidbody.linearVelocity = velocity;
+        }
 
         // Handle character facing direction
         if (Mathf.Abs(m_currentHorizontalSpeed) > 0.1f)
@@ -133,25 +139,18 @@ public class SideScrollerCharacterController : MonoBehaviour
 
     private void HandleJump()
     {
-        if (m_jumpInput && m_isGrounded)
+        if (m_jumpInput)
         {
-            // Apply jump force
-            m_rigidbody.linearVelocity = new Vector3(
-                m_rigidbody.linearVelocity.x,
-                jumpForce,
-                m_rigidbody.linearVelocity.z
-            );
-
-            OnJump?.Invoke();
+            if (m_isGrounded)
+            {
+                m_rigidbody.linearVelocity = new Vector3(
+                    m_rigidbody.linearVelocity.x,
+                    jumpForce,
+                    m_rigidbody.linearVelocity.z
+                );
+                OnJump?.Invoke();
+            }
             m_jumpInput = false;
-        }
-    }
-
-    private void TryJump()
-    {
-        if (m_isGrounded)
-        {
-            m_jumpInput = true;
         }
     }
 
@@ -159,15 +158,8 @@ public class SideScrollerCharacterController : MonoBehaviour
     {
         if (m_animator == null) return;
 
-        // Update animator parameters
         m_animator.SetFloat(moveSpeedParam, Mathf.Abs(m_currentHorizontalSpeed));
         m_animator.SetBool(groundedParam, m_isGrounded);
-
-        // Trigger jump animation
-        if (m_jumpInput && m_isGrounded)
-        {
-            m_animator.SetTrigger(jumpParam);
-        }
     }
 
     // Input System support
@@ -180,7 +172,7 @@ public class SideScrollerCharacterController : MonoBehaviour
     {
         if (value.isPressed)
         {
-            TryJump();
+            m_jumpInput = true;
         }
     }
 
@@ -206,10 +198,10 @@ public class SideScrollerCharacterController : MonoBehaviour
     // Debug visualization
     private void OnDrawGizmosSelected()
     {
-        // Draw ground check ray
         Gizmos.color = m_isGrounded ? Color.green : Color.red;
-        Vector3 rayStart = transform.position + Vector3.up * 0.1f;
-        float rayLength = m_collider ? m_collider.height / 2 + groundCheckDistance : groundCheckDistance;
-        Gizmos.DrawRay(rayStart, Vector3.down * rayLength);
+        float sphereRadius = m_collider ? m_collider.radius * 0.8f : 0.3f;
+        Vector3 sphereStart = transform.position + Vector3.up * 0.1f;
+        Gizmos.DrawWireSphere(sphereStart, sphereRadius);
+        Gizmos.DrawLine(sphereStart, sphereStart + Vector3.down * groundCheckDistance);
     }
 }
