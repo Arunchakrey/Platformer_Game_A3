@@ -7,6 +7,7 @@ public class Pickup : MonoBehaviour, IItem
     public void Collect()
     {
         Destroy(gameObject);
+        SoundEffectManager.Play("Sappling");
         OnSapplingCollect.Invoke(worth);
     }
 }
