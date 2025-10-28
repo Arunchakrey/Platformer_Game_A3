@@ -625,14 +625,14 @@ RectTransform:
   m_GameObject: {fileID: 42540934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.42, y: 1.42, z: 1.42}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1576098899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -95, y: -50}
+  m_AnchoredPosition: {x: -95.6, y: -59.28}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &42540936
@@ -761,6 +761,7 @@ GameObject:
   - component: {fileID: 51248800}
   - component: {fileID: 51248799}
   - component: {fileID: 51248798}
+  - component: {fileID: 51248801}
   m_Layer: 5
   m_Name: Restart
   m_TagString: Untagged
@@ -881,6 +882,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51248796}
   m_CullTransparentMesh: 1
+--- !u!114 &51248801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51248796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1 &72793004
 GameObject:
   m_ObjectHideFlags: 0
@@ -5726,6 +5743,7 @@ GameObject:
   - component: {fileID: 109286197}
   - component: {fileID: 109286196}
   - component: {fileID: 109286195}
+  - component: {fileID: 109286198}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -5846,6 +5864,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109286193}
   m_CullTransparentMesh: 1
+--- !u!114 &109286198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109286193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1 &140695279
 GameObject:
   m_ObjectHideFlags: 0
@@ -11234,10 +11268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 152bf7a3642064cdf8aa5274e3e01c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  rb: {fileID: 0}
-  disableOnDeath:
-  - {fileID: 0}
 --- !u!114 &347281350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11359,6 +11389,7 @@ GameObject:
   - component: {fileID: 424091747}
   - component: {fileID: 424091746}
   - component: {fileID: 424091745}
+  - component: {fileID: 424091748}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -11479,6 +11510,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424091743}
   m_CullTransparentMesh: 1
+--- !u!114 &424091748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424091743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1 &468709733
 GameObject:
   m_ObjectHideFlags: 0
@@ -21661,6 +21708,7 @@ GameObject:
   - component: {fileID: 813977426}
   - component: {fileID: 813977425}
   - component: {fileID: 813977424}
+  - component: {fileID: 813977427}
   m_Layer: 5
   m_Name: Retry
   m_TagString: Untagged
@@ -21781,6 +21829,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813977422}
   m_CullTransparentMesh: 1
+--- !u!114 &813977427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813977422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1 &825295666
 GameObject:
   m_ObjectHideFlags: 0
@@ -28316,6 +28380,7 @@ GameObject:
   - component: {fileID: 1913226768}
   - component: {fileID: 1913226767}
   - component: {fileID: 1913226766}
+  - component: {fileID: 1913226769}
   m_Layer: 5
   m_Name: Resume
   m_TagString: Untagged
@@ -28436,6 +28501,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913226764}
   m_CullTransparentMesh: 1
+--- !u!114 &1913226769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913226764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d600d3fc0d1a0415496bdd16f41bb92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetImage: {fileID: 0}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  scaleOnHover: 1
+  hoverScale: 1.08
 --- !u!1 &1915405160
 GameObject:
   m_ObjectHideFlags: 0

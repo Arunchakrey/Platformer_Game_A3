@@ -106,3 +106,7 @@ InitTestScene*.unity*
 *.controller merge=unityyamlmerge eol=lf
 *.anim       merge=unityyamlmerge eol=lf
 *.meta       merge=unityyamlmerge eol=lf
+
+
+FinalWebBuild/.DS_Store
+.DS_Store
