@@ -196,17 +196,30 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
     "com.unity.package-validation-suite": {
       "version": "0.22.0-preview",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.nuget.mono-cecil": "0.1.6-preview.2"
+=======
+    "com.unity.polybrush": {
+      "version": "1.1.8",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.settings-manager": "2.0.1"
+>>>>>>> 3drenderingaaryan2nd
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.postprocessing": {
+<<<<<<< HEAD
       "version": "3.5.1",
+=======
+      "version": "3.5.0",
+>>>>>>> 3drenderingaaryan2nd
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -214,6 +227,21 @@
       },
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
+=======
+    "com.unity.probuilder": {
+      "version": "6.0.6",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.shadergraph": "17.0.3",
+        "com.unity.modules.imgui": "1.0.0",
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.settings-manager": "1.0.3"
+      },
+      "url": "https://packages.unity.com"
+    },
+>>>>>>> 3drenderingaaryan2nd
     "com.unity.render-pipelines.core": {
       "version": "17.0.4",
       "depth": 0,
@@ -266,7 +294,7 @@
     },
     "com.unity.settings-manager": {
       "version": "2.1.0",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
