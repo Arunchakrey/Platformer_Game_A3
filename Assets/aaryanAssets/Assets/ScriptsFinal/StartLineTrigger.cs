@@ -1,18 +1,15 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
-using UnityEngine;
-
-public class DebugTrigger : MonoBehaviour
+public class StartLineTrigger : MonoBehaviour
 {
+    private bool hasTriggered = false;
+
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"DEBUG: Something entered trigger! Object: {other.name}, Tag: {other.tag}");
-
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !hasTriggered)
         {
-            Debug.Log("DEBUG: PLAYER DETECTED IN TRIGGER!");
+            DialogueManager.Instance.StartLevelDialogue();
+            hasTriggered = true;
         }
     }
 }
