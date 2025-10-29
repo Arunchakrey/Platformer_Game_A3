@@ -111,22 +111,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
-<<<<<<< HEAD:Assets/Imported/Super Grotto Escape/Characters/Enemies/Ghost-fury/ghost-fury-1.png.meta
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-=======
->>>>>>> 3drenderingaaryan2nd:Assets/Super Grotto Escape/Characters/Enemies/Ghost-fury/ghost-fury-1.png.meta
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
