@@ -56,7 +56,6 @@ public class WinOnScoreAdvance : MonoBehaviour
         {
             fired = true;
             StartCoroutine(Advance());
-            UnlockNewLevel();
         }
     }
 
@@ -64,7 +63,7 @@ public class WinOnScoreAdvance : MonoBehaviour
     {
         if (playerScore) return;
         var active = SceneManager.GetActiveScene();
-        var all = FindObjectsOfType<PlayerScore>(true);
+        var all = FindObjectsByType<PlayerScore>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         foreach (var ps in all)
         {
             if (ps && ps.gameObject.scene == active) { playerScore = ps; break; }
@@ -107,16 +106,6 @@ public class WinOnScoreAdvance : MonoBehaviour
             {
                 SceneManager.LoadScene(fallbackScene, LoadSceneMode.Single);
             }
-        }
-    }
-
-    void UnlockNewLevel()
-    {
-        if (SceneManager.GetActiveScene().buildIndex >= PlayerPrefs.GetInt("ReachedIndex"))
-        {
-            PlayerPrefs.SetInt("ReachedInfex", SceneManager.GetActiveScene().buildIndex + 1);
-            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
-            PlayerPrefs.Save();
         }
     }
 }

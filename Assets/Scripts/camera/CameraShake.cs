@@ -10,7 +10,7 @@ public class CameraShake : MonoBehaviour
 
     void Awake()
     {
-        if (!vcam) vcam = FindObjectOfType<CinemachineCamera>();
+        if (!vcam) vcam = FindAnyObjectByType<CinemachineCamera>();
         noise = vcam.GetComponentInChildren<CinemachineBasicMultiChannelPerlin>();
     }
 

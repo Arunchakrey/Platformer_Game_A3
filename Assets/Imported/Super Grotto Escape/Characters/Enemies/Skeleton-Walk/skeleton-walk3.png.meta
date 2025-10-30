@@ -111,7 +111,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
-<<<<<<< HEAD:Assets/Imported/Super Grotto Escape/Characters/Enemies/Skeleton-Walk/skeleton-walk3.png.meta
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
@@ -125,8 +124,6 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
-=======
->>>>>>> 3drenderingaaryan2nd:Assets/Super Grotto Escape/Characters/Enemies/Skeleton-Walk/skeleton-walk3.png.meta
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:

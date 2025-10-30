@@ -7,32 +7,38 @@ public class TrapScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             HandlePlayerBounce(collision.gameObject);
-            Debug.Log("Same Tag as expected: Player");
         }
     }
 
     private void HandlePlayerBounce(GameObject player)
     {
-        Rigidbody2D rb = player.GetComponent<Rigidbody2D>();
-        Animator anim = player.GetComponent<Animator>();
-        Debug.Log("Got player Object");
+        var rb = player.GetComponent<Rigidbody2D>();
+        var anim = player.GetComponent<Animator>();
+        var health = player.GetComponent<PlayerHealthScript>();
 
-        if (rb)
+        if (rb != null)
         {
+            // stop current vertical velocity then impulse upward
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
-
-            //apply bounce force
             rb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
-            SoundEffectManager.Play("PlayerJump");
-            Debug.Log("Jump!!!");
-            anim.SetTrigger("jump");
-            //parameter for animation
 
+            if (anim) anim.SetTrigger("jump");
+        }
 
+        // Apply damage to player (with difficulty modifier)
+        if (health != null && damage > 0)
+        {
+            int modifiedDamage = damage;
+            if (DifficultyManager.Instance != null)
+            {
+                float hazardMultiplier = DifficultyManager.Instance.GetHazardDamageMultiplier();
+                modifiedDamage = Mathf.Max(1, Mathf.RoundToInt(damage * hazardMultiplier));
+                Debug.Log($"[TrapScript] Hazard damage: {damage} → {modifiedDamage} (x{hazardMultiplier})");
+            }
+            health.TakeDamage(modifiedDamage);
         }
     }
-
 }

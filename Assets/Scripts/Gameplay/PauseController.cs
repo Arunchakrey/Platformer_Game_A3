@@ -34,11 +34,7 @@ public class PauseController : MonoBehaviour
         if (GameStateManager.I != null && GameStateManager.I.State != GameState.GameOver)
             GameStateManager.I.Set(GameState.Playing);
         else
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
             Time.timeScale = 1f;
-        }
     }
 
     void Update()

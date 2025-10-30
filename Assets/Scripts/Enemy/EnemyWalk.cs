@@ -4,6 +4,7 @@ public class EnemyWalk : MonoBehaviour
 {
     public Transform player;
     public float chaseSpeed = 2f;
+    private float difficultyAdjustedSpeed;
     public LayerMask groundLayer;
     private Rigidbody2D rb;
     public bool isGrounded;
@@ -14,6 +15,18 @@ public class EnemyWalk : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         if (!anim) anim = GetComponent<Animator>();
+
+        // Apply difficulty modifier to chase speed
+        if (DifficultyManager.Instance != null)
+        {
+            float speedMultiplier = DifficultyManager.Instance.GetEnemySpeedMultiplier();
+            difficultyAdjustedSpeed = chaseSpeed * speedMultiplier;
+            Debug.Log($"[EnemyWalk] Difficulty adjusted speed: {chaseSpeed} → {difficultyAdjustedSpeed} (x{speedMultiplier})");
+        }
+        else
+        {
+            difficultyAdjustedSpeed = chaseSpeed;
+        }
     }
 
     // Update is called once per frame
@@ -30,8 +43,8 @@ public class EnemyWalk : MonoBehaviour
 
         if (isGrounded)
         {
-            //chase player
-            rb.linearVelocity = new Vector2(direction * chaseSpeed, rb.linearVelocityY);
+            //chase player (using difficulty-adjusted speed)
+            rb.linearVelocity = new Vector2(direction * difficultyAdjustedSpeed, rb.linearVelocityY);
         }
 
         if (player.position.x < transform.position.x)
