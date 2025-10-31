@@ -4232,7 +4232,7 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls: []
-  healthUI: {fileID: 0}
+  healthUI: {fileID: 1906290434}
   playerRenderer: {fileID: 0}
   flashColor: {r: 1, g: 0, b: 0, a: 1}
   flashTime: 0.2
@@ -5267,6 +5267,8 @@ MonoBehaviour:
   continueButton: {fileID: 1325142693}
   startOfLevelDialogue: []
   endOfLevelDialogue: []
+  menuSceneName: MainMenu3D
+  loadMenuAfterEndDialogue: 0
 --- !u!4 &1408789623
 Transform:
   m_ObjectHideFlags: 0
@@ -7211,6 +7213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1906290432}
+  - component: {fileID: 1906290434}
   - component: {fileID: 1906290433}
   m_Layer: 0
   m_Name: HealthHudUI
@@ -7219,21 +7222,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1906290432
-Transform:
+--- !u!224 &1906290432
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1906290431}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -430.2526, y: -162.50082, z: -2.9895918}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2.9895918}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1494285429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -10}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1906290433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7243,19 +7250,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 1906290431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caeb30807a0073c41b517bdab4a4a7b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
-  OnDied:
-    m_PersistentCalls:
-      m_Calls: []
-  healthUI: {fileID: 0}
-  playerRenderer: {fileID: 0}
-  flashColor: {r: 1, g: 0, b: 0, a: 1}
-  flashTime: 0.2
-  audioSource: {fileID: 0}
-  playerHitSound: {fileID: 0}
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &1906290434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906290431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ec81e418ce358a4385172b72dad5993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartPrefab: {fileID: 5665292593361265681, guid: 4b60ea03c9b3bf646afa26aed35a31c4, type: 3}
+  fullHeartSprite: {fileID: 4998712636116889591, guid: 2cc2e101de469c44a8b8496e36dc7aad, type: 3}
+  emptyHeartSprite: {fileID: 7998867319078972010, guid: 2cc2e101de469c44a8b8496e36dc7aad, type: 3}
 --- !u!1001 &1907823184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7349,11 +7375,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1121125582535847827, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1121125582535847827, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 1121125582535847827, guid: 9854bb05e98038145add8ed7c25af4b1, type: 3}
       propertyPath: m_LocalPosition.z

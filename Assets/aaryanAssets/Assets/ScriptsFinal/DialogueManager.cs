@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class DialogueManager : MonoBehaviour
 
     [TextArea(3, 10)]
     public string[] endOfLevelDialogue;
+
+    [Header("Scene Management")]
+    public string menuSceneName = "MainMenu";
+    public bool loadMenuAfterEndDialogue = false;
 
     private int currentLine = 0;
     private string[] currentDialogue;
@@ -71,6 +76,7 @@ public class DialogueManager : MonoBehaviour
     {
         currentDialogue = startOfLevelDialogue;
         currentLine = 0;
+        loadMenuAfterEndDialogue = false; // Don't load menu after start dialogue
         ShowDialogue();
     }
 
@@ -78,6 +84,7 @@ public class DialogueManager : MonoBehaviour
     {
         currentDialogue = endOfLevelDialogue;
         currentLine = 0;
+        loadMenuAfterEndDialogue = true; // Set flag to load menu after this dialogue
         ShowDialogue();
     }
 
@@ -110,5 +117,11 @@ public class DialogueManager : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
         Time.timeScale = 1f; // Resume game
+        
+        // Load menu after end dialogue finishes
+        if (loadMenuAfterEndDialogue && !string.IsNullOrEmpty(menuSceneName))
+        {
+            SceneManager.LoadScene(menuSceneName);
+        }
     }
 }
