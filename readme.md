@@ -10,6 +10,8 @@ The project demonstrates our understanding of Unity’s physics, UI systems, sou
 
 ## Game Link
 
+https://hengrvisal.itch.io/2d3d-platformer-game
+
 ---
 
 ## 🕹️ Game Controls
