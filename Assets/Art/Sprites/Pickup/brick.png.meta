@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -116,12 +116,12 @@ TextureImporter:
       name: brick_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 88
-        width: 894
-        height: 795
+        x: 3
+        y: 101
+        width: 981
+        height: 876
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1e3fda1f68c46f047bc7884e78c83fb8
     internalID: 0
     vertices: []
     indices: 

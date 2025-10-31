@@ -10,7 +10,9 @@ public class GameController : MonoBehaviour
     {
         progressAmount = 0;
         progressSlider.value = 0;
-        Pickup.OnSapplingCollect += IncreaseProgressAmount;
+        // TODO: Pickup.OnSapplingCollect event doesn't exist in Pickup class
+        // Need to implement this event in Pickup.cs if progress tracking is needed
+        // Pickup.OnSapplingCollect += IncreaseProgressAmount;
     }
 
     private void IncreaseProgressAmount(int amount)

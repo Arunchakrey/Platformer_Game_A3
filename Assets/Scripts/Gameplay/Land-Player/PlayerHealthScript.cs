@@ -1,8 +1,6 @@
-
+using System;
 using System.Collections;
-
 using UnityEngine;
-
 using UnityEngine.Events;
 
 
@@ -10,6 +8,7 @@ public class PlayerHealthScript : MonoBehaviour
 {
     [Header("Health")]
     public int maxHealth = 5;
+    private int difficultyAdjustedMaxHealth;
     public int CurrentHealth { get; private set; }
     public UnityEvent OnDied;
 
@@ -23,21 +22,30 @@ public class PlayerHealthScript : MonoBehaviour
 
     private bool isDead;
 
-    [Header("Camera Shake")]
-    [SerializeField] private CameraShake cameraShake; 
-    [SerializeField] private float hitAmplitude = 1.4f;
-    [SerializeField] private float hitFrequency = 8f;
-    [SerializeField] private float hitDuration = 0.18f;
-    [SerializeField] private float deathAmplitude = 2.5f;
-    [SerializeField] private float deathFrequency = 6f;
-    [SerializeField] private float deathDuration = 0.35f;
-
     void Awake()
     {
         if (!spriteRenderer) spriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
-        CurrentHealth = maxHealth;
-        if (healthUI) healthUI.SetMaxHearts(maxHealth);
-        if (!cameraShake) cameraShake = FindObjectOfType<CameraShake>();
+
+        Debug.Log($"[PlayerHealthScript] Awake called - checking DifficultyManager...");
+
+        // Apply difficulty modifier to max health
+        if (DifficultyManager.Instance != null)
+        {
+            DifficultyManager.Difficulty currentDiff = DifficultyManager.Instance.GetDifficulty();
+            float healthMultiplier = DifficultyManager.Instance.GetHealthMultiplier();
+            difficultyAdjustedMaxHealth = Mathf.Max(1, Mathf.RoundToInt(maxHealth * healthMultiplier));
+            Debug.Log($"[PlayerHealthScript] DifficultyManager found! Current: {currentDiff}");
+            Debug.Log($"[PlayerHealthScript] Difficulty adjusted max health: {maxHealth} → {difficultyAdjustedMaxHealth} (x{healthMultiplier})");
+        }
+        else
+        {
+            Debug.LogWarning($"[PlayerHealthScript] DifficultyManager.Instance is NULL! Using default: {maxHealth}");
+            difficultyAdjustedMaxHealth = maxHealth;
+        }
+
+        CurrentHealth = difficultyAdjustedMaxHealth;
+        Debug.Log($"[PlayerHealthScript] Final - MaxHealth: {difficultyAdjustedMaxHealth}, CurrentHealth: {CurrentHealth}");
+        if (healthUI) healthUI.SetMaxHearts(difficultyAdjustedMaxHealth);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,29 +54,27 @@ public class PlayerHealthScript : MonoBehaviour
         if (enemy)
         {
             TakeDamage(enemy.damage);
-            SoundEffectManager.Play("PlayerHit");
         }
-        TrapScript trap = collision.GetComponent<TrapScript>();
-        if (trap && trap.damage > 0)
-        {
-            TakeDamage(trap.damage);
-            SoundEffectManager.Play("PlayerHit");
-        }
+        // Note: TrapScript handles its own damage application directly
     }
 
     public void TakeDamage(int damage)
     {
         if (isDead) return;
 
-        CurrentHealth = Mathf.Max(0, CurrentHealth - Mathf.Max(0, damage));
+        // Apply difficulty modifier to damage taken
+        int modifiedDamage = damage;
+        if (DifficultyManager.Instance != null)
+        {
+            float damageMultiplier = DifficultyManager.Instance.GetDamageTakenMultiplier();
+            modifiedDamage = Mathf.Max(1, Mathf.RoundToInt(damage * damageMultiplier));
+            Debug.Log($"[PlayerHealthScript] Damage taken: {damage} → {modifiedDamage} (x{damageMultiplier})");
+        }
+
+        CurrentHealth = Mathf.Max(0, CurrentHealth - modifiedDamage);
         if (healthUI) healthUI.UpdateHearts(CurrentHealth);
 
         StartCoroutine(FlashRed());
-
-        if (cameraShake)
-        {
-            cameraShake.Shake(hitAmplitude, hitFrequency, hitDuration);
-        }
 
         if (CurrentHealth <= 0)
             Die();
@@ -85,12 +91,6 @@ public class PlayerHealthScript : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
-
-        if (cameraShake)
-        {
-            cameraShake.Shake(deathAmplitude, deathFrequency, deathDuration);
-        }
-
         OnDied?.Invoke();
     }
 }

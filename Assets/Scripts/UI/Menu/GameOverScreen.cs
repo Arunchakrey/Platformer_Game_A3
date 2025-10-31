@@ -15,11 +15,6 @@ public class GameOverScreen : MonoBehaviour
     {
         Time.timeScale = 1f;
         GameStateManager.I?.Set(GameState.Playing);
-
-        // Explicitly fix the cursor for menus
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
-        SceneManager.LoadSceneAsync("Main Menu", LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("Main Menu");
     }
 }
