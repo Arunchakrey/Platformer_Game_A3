@@ -18,6 +18,16 @@ public class SideScrollerCharacterController : MonoBehaviour
     public float acceleration = 10f;
     public float deceleration = 15f;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip playerJumpSound;
+    public AudioClip playerLandSound;
+    public AudioClip playerWalkSound;
+
+    // Walking sound control
+    private bool isWalking = false;
+    private float walkSoundCooldown = 0f;
+
     // Component references
     private Animator m_animator;
     private Rigidbody m_rigidbody;
@@ -54,6 +64,7 @@ public class SideScrollerCharacterController : MonoBehaviour
     {
         HandleInput();
         UpdateAnimator();
+        HandleWalkSound();
     }
 
     private void FixedUpdate()
@@ -87,8 +98,10 @@ public class SideScrollerCharacterController : MonoBehaviour
         RaycastHit hit;
         m_isGrounded = Physics.SphereCast(sphereStart, sphereRadius, Vector3.down, out hit, rayLength, groundLayers);
 
+        // Play landing sound
         if (!m_wasGrounded && m_isGrounded && m_rigidbody.linearVelocity.y <= 0.1f)
         {
+            PlayLandSound();
             OnLand?.Invoke();
         }
     }
@@ -106,6 +119,7 @@ public class SideScrollerCharacterController : MonoBehaviour
                 targetSpeed,
                 acceleration * Time.fixedDeltaTime
             );
+            isWalking = true;
         }
         else
         {
@@ -114,6 +128,7 @@ public class SideScrollerCharacterController : MonoBehaviour
                 0f,
                 deceleration * Time.fixedDeltaTime
             );
+            isWalking = false;
         }
 
         // NUCLEAR DRIFT FIX
@@ -148,9 +163,51 @@ public class SideScrollerCharacterController : MonoBehaviour
                     jumpForce,
                     m_rigidbody.linearVelocity.z
                 );
+                PlayJumpSound();
                 OnJump?.Invoke();
             }
             m_jumpInput = false;
+        }
+    }
+
+    private void HandleWalkSound()
+    {
+        if (isWalking && m_isGrounded)
+        {
+            walkSoundCooldown -= Time.deltaTime;
+            if (walkSoundCooldown <= 0f)
+            {
+                PlayWalkSound();
+                walkSoundCooldown = 0.3f; // Adjust for walk rhythm
+            }
+        }
+        else
+        {
+            walkSoundCooldown = 0f;
+        }
+    }
+
+    private void PlayJumpSound()
+    {
+        if (audioSource != null && playerJumpSound != null)
+        {
+            audioSource.PlayOneShot(playerJumpSound);
+        }
+    }
+
+    private void PlayLandSound()
+    {
+        if (audioSource != null && playerLandSound != null)
+        {
+            audioSource.PlayOneShot(playerLandSound);
+        }
+    }
+
+    private void PlayWalkSound()
+    {
+        if (audioSource != null && playerWalkSound != null)
+        {
+            audioSource.PlayOneShot(playerWalkSound, 1.0f); // Lower volume for footsteps
         }
     }
 
