@@ -3,7 +3,7 @@ using UnityEngine;
 public class Pickup : MonoBehaviour, IItem
 {
     public static event Action<int> OnSapplingCollect;
-    public int worth = 10;
+    public int worth = 1;
     public void Collect()
     {
         Destroy(gameObject);

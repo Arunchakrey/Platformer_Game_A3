@@ -185,6 +185,7 @@ public class SwimController : MonoBehaviour
 
         body.linearVelocity = v;
         bubble?.OnStroke();
+        SoundEffectManager.Play("PlayerJump");
 
     }
 
