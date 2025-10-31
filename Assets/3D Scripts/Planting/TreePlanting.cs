@@ -3,7 +3,7 @@ using UnityEngine;
 public class TreePlanting : MonoBehaviour
 {
     [Header("References")]
-    public GameObject treePrefab;       
+    public GameObject treePrefab;
     public float plantingDistance = 2f; // How close the player needs to be
 
     private void Update()
@@ -30,7 +30,7 @@ public class TreePlanting : MonoBehaviour
                 {
                     // Plant tree
                     GameObject newTree = Instantiate(treePrefab, spot.transform.position, Quaternion.identity);
-                    newTree.transform.localScale = Vector3.one * 0.35f;
+                    newTree.transform.localScale = Vector3.one * 2.0f;
                     newTree.transform.parent = spot.transform; // Attach tree to the spot
                     Debug.Log("Tree planted at " + spot.name);
                 }

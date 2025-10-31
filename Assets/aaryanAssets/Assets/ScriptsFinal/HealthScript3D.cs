@@ -13,16 +13,19 @@ public class HealthScript3D : MonoBehaviour
     public HealthUI healthUI;
 
     [Header("Visual")]
-    [SerializeField] private Renderer playerRenderer; // Changed from SpriteRenderer
+    [SerializeField] private Renderer playerRenderer;
     [SerializeField] private Color flashColor = Color.red;
     [SerializeField] private float flashTime = 0.2f;
+
+    [Header("Audio")] // ADD THIS
+    public AudioSource audioSource;
+    public AudioClip playerHitSound;
 
     private bool isDead;
     private Color originalColor;
 
     void Awake()
     {
-        // Changed to get 3D Renderer instead of SpriteRenderer
         if (!playerRenderer) playerRenderer = GetComponentInChildren<Renderer>();
         if (playerRenderer) originalColor = playerRenderer.material.color;
 
@@ -30,10 +33,8 @@ public class HealthScript3D : MonoBehaviour
         if (healthUI) healthUI.SetMaxHearts(maxHealth);
     }
 
-    // Changed from OnTriggerEnter2D to OnTriggerEnter for 3D
     private void OnTriggerEnter(Collider other)
     {
-        // Update these to your 3D enemy/trap scripts
         Enemy enemy = other.GetComponent<Enemy>();
         if (enemy)
         {
@@ -54,10 +55,22 @@ public class HealthScript3D : MonoBehaviour
         CurrentHealth = Mathf.Max(0, CurrentHealth - Mathf.Max(0, damage));
         if (healthUI) healthUI.UpdateHearts(CurrentHealth);
 
+        // PLAY HIT SOUND WHEN DAMAGED ← ADD THIS
+        PlayHitSound();
+
         StartCoroutine(FlashRed());
 
         if (CurrentHealth <= 0)
             Die();
+    }
+
+    // ADD THIS METHOD
+    private void PlayHitSound()
+    {
+        if (audioSource != null && playerHitSound != null)
+        {
+            audioSource.PlayOneShot(playerHitSound);
+        }
     }
 
     private IEnumerator FlashRed()
