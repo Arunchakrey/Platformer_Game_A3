@@ -111,6 +111,10 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:Assets/Imported/Super Grotto Escape/Characters/Player/player-run/player-run5.png.meta
+>>>>>>> e69b51185f47690f574f76132b1546a0f798947f
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
@@ -124,6 +128,11 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 3drenderingaaryan2nd:Assets/Super Grotto Escape/Characters/Player/player-run/player-run5.png.meta
+>>>>>>> e69b51185f47690f574f76132b1546a0f798947f
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:

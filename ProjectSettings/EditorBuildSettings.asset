@@ -20,6 +20,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Levels/End.unity
     guid: ec69b0f53368844c6b9eef8aaca42a3a
+  - enabled: 1
+    path: Assets/Scenes/Level 3D/MainMenu3D.unity
+    guid: 7434184fb3e36401f84bcf02411bbaef
+  - enabled: 1
+    path: Assets/Scenes/Level 3D/3D level.unity
+    guid: dfcd48d86d7f7ef42bab2831f57df430
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

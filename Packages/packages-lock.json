@@ -210,11 +210,16 @@
       "source": "registry",
       "dependencies": {
         "com.unity.settings-manager": "2.0.1"
+>>>>>>> 3drenderingaaryan2nd
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.postprocessing": {
+<<<<<<< HEAD
+      "version": "3.5.1",
+=======
       "version": "3.5.0",
+>>>>>>> 3drenderingaaryan2nd
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -222,6 +227,8 @@
       },
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
+=======
     "com.unity.probuilder": {
       "version": "6.0.6",
       "depth": 0,
@@ -231,10 +238,14 @@
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.modules.physics": "1.0.0",
         "com.unity.settings-manager": "1.0.3"
+<<<<<<< HEAD
 >>>>>>> 3drenderingaaryan2nd
+=======
+>>>>>>> e69b51185f47690f574f76132b1546a0f798947f
       },
       "url": "https://packages.unity.com"
     },
+>>>>>>> 3drenderingaaryan2nd
     "com.unity.render-pipelines.core": {
       "version": "17.0.4",
       "depth": 0,

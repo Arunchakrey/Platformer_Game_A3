@@ -83,11 +83,15 @@ public class Player : MonoBehaviour
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 
     
 >>>>>>> 3drenderingaaryan2nd
+=======
+        
+>>>>>>> e69b51185f47690f574f76132b1546a0f798947f
         // move every frame based on input
         transform.position += moveDir * movementSpeed * Time.deltaTime;
     }
