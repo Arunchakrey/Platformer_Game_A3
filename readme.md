@@ -39,7 +39,22 @@ Playable build link: **itch.io**
 - **Ratanakvisal Heng (@hengr.visal)** - All Underwater mechanisms (Level2) including, swim physics, drown damage over time, bubble particles. As well as UI menu of the game, including level progressions, pause screen, and game over screen.
 - **Arunchakrey Puthyrith (@Arunchakrey)** - All mechanics of player on Land, including walking and jumping physics, land enemies "AI" (grasshopper and bear) and damage to the player, spikes and springs scripts and interaciton with player, UI for health, pickup script, speed boost script with cooldown, visual FX on player when speed boost is active, tilemap setup for level 1, camera following player character.
 - **Aaryan** - Made Level 3, used a variety of sprites and backgrounds, made modifications to health UI system.
-- **Tristen Lee (@TristT1)** – The build site system, house construction logic, log gathering, and other gameplay elements for Level 4 (Build Houses) were completely designed and developed. built scripts for MaterialPickup, CarryStack, and BuildSite that integrate scores into the global HUD. Falling Brick hazard with damage and knockback, exit door system unlocking upon build completion, and complete HUD reconstruction (Score, Total, and Build Progress) were included. In addition, new sprites (log, brick, little log cabin, and exit door) were made and integrated, the background was designed using the Free Pixel Art Forest Pack, and merge resolution and level polish were managed.
+- **Tristen Lee (@TristT1)**
+Contributions:
+Designed and built Level 4 from scratch with log collection and house building mechanics.
+Created collectible log system with auto-pickup functionality and visual feedback.
+Implemented falling brick hazards with damage and physics-based knockback.
+Developed player inventory system allowing carrying up to 2 logs at a time with visual stacking.
+Created build site with progress tracking and construction stages.
+Implemented exit door trigger that opens upon level completion.
+Developed comprehensive difficulty system (Easy/Normal/Hard) affecting player health, enemy speed, and hazard damage.
+Implemented data persistence using PlayerPrefs and DontDestroyOnLoad patterns.
+Ensured difficulty settings persist across all levels using scene management callbacks.
+Created HealthUIConnector to bridge Health component with UI system.
+Fixed compilation errors by updating deprecated Unity APIs (FindObjectOfType, Rigidbody2D.isKinematic).
+Made SoundEffectManager accessible and added PlaySound functionality for audio integration.
+Implemented data-driven architecture using ScriptableObjects for maintainability.
+
 - _All teammates contributed to playtesting, code reviews, prefab/scene setup, and final polish._
 
 ### D) Requirements Checklist
