@@ -17,12 +17,6 @@ public class GameController : MonoBehaviour
     {
         progressAmount += amount;
         progressSlider.value = progressAmount;
-
-        if (progressAmount >= 100)
-        {
-            //level complete
-            Debug.Log("Level Complete");
-        }
     }
 
 }
