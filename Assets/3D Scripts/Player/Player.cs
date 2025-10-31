@@ -82,6 +82,12 @@ public class Player : MonoBehaviour
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * rotateSpeed);
             }
         }
+<<<<<<< HEAD
+=======
+        
+
+    
+>>>>>>> 3drenderingaaryan2nd
         // move every frame based on input
         transform.position += moveDir * movementSpeed * Time.deltaTime;
     }

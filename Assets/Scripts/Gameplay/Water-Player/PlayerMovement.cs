@@ -1,7 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+<<<<<<< HEAD
 public class PlayerMoveScript : MonoBehaviour
+=======
+public class PlayerMovementWater : MonoBehaviour
+>>>>>>> 3drenderingaaryan2nd
 {
     // player mechanics
     private float movementSpeed = 3.2f, jumpSpeed = 8f;
