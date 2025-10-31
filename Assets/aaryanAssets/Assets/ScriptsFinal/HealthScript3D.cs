@@ -30,6 +30,7 @@ public class HealthScript3D : MonoBehaviour
     private Vector3 startPosition;
     private Rigidbody playerRigidbody;
     private MonoBehaviour playerController;
+    private Collider playerCollider;
 
     void Awake()
     {
@@ -39,6 +40,7 @@ public class HealthScript3D : MonoBehaviour
         if (!playerRenderer) playerRenderer = GetComponentInChildren<Renderer>();
         playerRigidbody = GetComponent<Rigidbody>();
         playerController = GetComponent<MonoBehaviour>(); // Get any controller script
+        playerCollider = GetComponent<Collider>();
 
         if (playerRenderer) originalColor = playerRenderer.material.color;
 
@@ -99,7 +101,7 @@ public class HealthScript3D : MonoBehaviour
         isDead = true;
         Debug.Log("=== PLAYER DIED ===");
         
-        // Disable player control and physics during respawn
+        // IMMEDIATELY disable player control and physics
         DisablePlayerControl();
         
         OnDied?.Invoke();
@@ -107,13 +109,25 @@ public class HealthScript3D : MonoBehaviour
         Debug.Log($"BEFORE RESPAWN DELAY - Current position: {transform.position}");
         Debug.Log($"Respawn position set to: {respawnPosition}");
         
+        // IMMEDIATELY move to respawn position to prevent further movement
+        transform.position = respawnPosition;
+        Debug.Log($"IMMEDIATELY moved to respawn position: {transform.position}");
+        
         // Wait for respawn delay (with reduced logging)
         float timer = 0f;
         while (timer < respawnDelay)
         {
             timer += Time.deltaTime;
-            // Only log every 0.2 seconds to reduce spam
-            if (Mathf.Approximately(timer % 0.2f, 0f) || timer >= respawnDelay)
+            
+            // Force position to stay at respawn position during delay
+            if (Vector3.Distance(transform.position, respawnPosition) > 0.1f)
+            {
+                Debug.LogWarning($"Player moved during respawn! Correcting position from {transform.position} to {respawnPosition}");
+                transform.position = respawnPosition;
+            }
+            
+            // Only log every 0.3 seconds to reduce spam
+            if (Mathf.Approximately(timer % 0.3f, 0f) || timer >= respawnDelay)
             {
                 Debug.Log($"Respawn delay: {timer:F2}/{respawnDelay} - Position: {transform.position}");
             }
@@ -122,39 +136,66 @@ public class HealthScript3D : MonoBehaviour
         
         Debug.Log($"AFTER RESPAWN DELAY - Current position: {transform.position}");
         
-        // Respawn player
+        // Final respawn to ensure everything is reset
         Respawn();
     }
 
     private void DisablePlayerControl()
     {
-        // Stop all movement
+        Debug.Log("Disabling player control...");
+        
+        // Stop all movement immediately
         if (playerRigidbody != null)
         {
+            Debug.Log($"Stopping rigidbody. Velocity was: {playerRigidbody.linearVelocity}");
             playerRigidbody.linearVelocity = Vector3.zero;
             playerRigidbody.angularVelocity = Vector3.zero;
-            playerRigidbody.isKinematic = true; // Disable physics
+            playerRigidbody.isKinematic = true; // Completely disable physics
+            Debug.Log($"Rigidbody is now kinematic. Velocity: {playerRigidbody.linearVelocity}");
+        }
+        else
+        {
+            Debug.LogWarning("No Rigidbody found on player!");
         }
         
-        // Disable player controller
+        // Disable player controller to prevent input
         if (playerController != null)
         {
             playerController.enabled = false;
+            Debug.Log("Player controller disabled");
+        }
+        
+        // Optionally disable collider to prevent further collisions
+        if (playerCollider != null)
+        {
+            playerCollider.enabled = false;
+            Debug.Log("Player collider disabled");
         }
     }
 
     private void EnablePlayerControl()
     {
+        Debug.Log("Enabling player control...");
+        
         // Re-enable physics
         if (playerRigidbody != null)
         {
             playerRigidbody.isKinematic = false;
+            Debug.Log("Rigidbody kinematic disabled");
         }
         
         // Re-enable player controller
         if (playerController != null)
         {
             playerController.enabled = true;
+            Debug.Log("Player controller enabled");
+        }
+        
+        // Re-enable collider
+        if (playerCollider != null)
+        {
+            playerCollider.enabled = true;
+            Debug.Log("Player collider enabled");
         }
     }
 
@@ -164,16 +205,16 @@ public class HealthScript3D : MonoBehaviour
         Debug.Log($"Moving from: {transform.position}");
         Debug.Log($"Moving to: {respawnPosition}");
         
-        // Reset position to respawn position
+        // Force position to respawn position
         transform.position = respawnPosition;
         Debug.Log($"Position after move: {transform.position}");
         
-        // Make sure velocity is zero
+        // Double-check velocity is zero
         if (playerRigidbody != null)
         {
             playerRigidbody.linearVelocity = Vector3.zero;
             playerRigidbody.angularVelocity = Vector3.zero;
-            Debug.Log($"Velocity after reset: {playerRigidbody.linearVelocity}");
+            Debug.Log($"Velocity confirmed zero: {playerRigidbody.linearVelocity}");
         }
         
         // Reset health
@@ -193,6 +234,17 @@ public class HealthScript3D : MonoBehaviour
         Debug.Log($"=== RESPAWN COMPLETE ===");
         Debug.Log($"Final position: {transform.position}");
         Debug.Log($"Final health: {CurrentHealth}");
+        
+        // Final verification
+        if (Vector3.Distance(transform.position, respawnPosition) > 0.1f)
+        {
+            Debug.LogError($"RESPAWN FAILED! Player at {transform.position} but should be at {respawnPosition}");
+            transform.position = respawnPosition; // Force one more time
+        }
+        else
+        {
+            Debug.Log("RESPAWN SUCCESS: Player is at correct respawn position");
+        }
     }
 
     private void PlayHitSound()
