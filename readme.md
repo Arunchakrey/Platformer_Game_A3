@@ -127,6 +127,10 @@ To reset your progress:
 - Camera shake currently only works on land surfaces.
 - UI panels may scale differently depending on resolution in builds.
 - Cursor visibility occasionally fails on scene transitions.
+- 3D level doesn't reset health when jumping off map
+- 3D menu title wrong position in final web build.
+- Dialogue remains in GitHub and not in the final Web build.
+- 3D movement drifts.
 
 ---
 
