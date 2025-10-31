@@ -54,7 +54,7 @@ public class DialogueManager : MonoBehaviour
                 "Deforestation accounts for nearly 15% of all greenhouse gas emissions. That's more than all the world's cars, trucks, planes, and ships combined!",
                 "Trees are nature's carbon capture technology. A single mature tree can absorb about 48 pounds of carbon dioxide per year and release enough oxygen for two people to breathe.",
                 "Your mission: Plant trees across this damaged landscape to restore the forest ecosystem and combat climate change.",
-                "Every tree you plant represents real climate action. Let's make a difference!"
+                "Every tree you plant represents real climate action. Plant 5 during this level! Let's make a difference!"
             };
         }
 
