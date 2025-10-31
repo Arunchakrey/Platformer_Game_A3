@@ -25,7 +25,7 @@ The project demonstrates our understanding of Unity’s physics, UI systems, sou
 
 ---
 
-## 🔄 Resetting Progress
+## Resetting Progress
 
 To reset your progress:
 
@@ -36,7 +36,7 @@ To reset your progress:
 
 ---
 
-## 👥 Team Contributions
+## Team Contributions
 
 ### **Arunchakrey**
 
@@ -91,9 +91,27 @@ To reset your progress:
 
 - JustCreate Studio. (n.d.). _Low Poly Simple Nature Pack_ [Unity asset]. Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/landscapes/low-poly-simple-nature-pack-162153
 
+### **Tristan**
+
+**Contributions:**
+
+- Designed and built Level 4 from scratch with log collection and house building mechanics.
+- Created collectible log system with auto-pickup functionality and visual feedback.
+- Implemented falling brick hazards with damage and physics-based knockback.
+  Developed player inventory system allowing carrying up to 2 logs at a time with visual stacking.
+- Created build site with progress tracking and construction stages.
+  Implemented exit door trigger that opens upon level completion.
+- Developed comprehensive difficulty system (Easy/Normal/Hard) affecting player health, enemy speed, and hazard damage.
+- Implemented data persistence using PlayerPrefs and DontDestroyOnLoad patterns.
+- Ensured difficulty settings persist across all levels using scene management callbacks.
+- Created HealthUIConnector to bridge Health component with UI system.
+  Fixed compilation errors by updating deprecated Unity APIs (FindObjectOfType, Rigidbody2D.isKinematic).
+- Made SoundEffectManager accessible and added PlaySound functionality for audio integration.
+- Implemented data-driven architecture using ScriptableObjects for maintainability.
+
 ---
 
-## ✅ Completed Requirements
+## Completed Requirements
 
 - [x] Functional 2D and 3D playable levels
 - [x] Interactive UI (Pause, Game Over, Volume Slider, Progress Bar)
@@ -104,7 +122,7 @@ To reset your progress:
 
 ---
 
-## ⚠️ Known Issues / Unresolved
+## Known Issues / Unresolved
 
 - Camera shake currently only works on land surfaces.
 - UI panels may scale differently depending on resolution in builds.
@@ -112,10 +130,10 @@ To reset your progress:
 
 ---
 
-## 🧩 Credits
+## Credits
 
 All external assets used are open-source or free assets, cited under APA 7th edition guidelines.  
-Game developed by **Arunchakrey**, **Aaryan**, and **Ratanakvisal** for the _Game Development Lifecycle_ course at _Swinburne University of Technology_.
+Game developed by **Arunchakrey**, **Aaryan**, **Tristan** and **Ratanakvisal** for the _Game Development Lifecycle_ course at _Swinburne University of Technology_.
 
 ---
 

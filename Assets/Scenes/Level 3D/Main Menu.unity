@@ -506,7 +506,6 @@ MonoBehaviour:
   - {fileID: 220372573}
   - {fileID: 1577734607}
   - {fileID: 2023935149}
-  - {fileID: 1018247242}
 --- !u!114 &73107473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5370,8 +5369,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936686240}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11174393, y: -0.7005755, z: 0.11121382, w: 0.69594455}
-  m_LocalPosition: {x: 8.259998, y: 1.9931415, z: -1.2568583}
+  m_LocalRotation: {x: 0.1188385, y: -0.7391045, z: 0.13412584, w: 0.6493168}
+  m_LocalPosition: {x: 8.236475, y: 2.2394388, z: -0.88503927}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5447,7 +5446,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 0.7
   m_FocusDistance: 0.1
-  m_FocalLength: 23.033285
+  m_FocalLength: 22.310198
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -5462,7 +5461,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1500
-  field of view: 55.037697
+  field of view: 56.549007
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
